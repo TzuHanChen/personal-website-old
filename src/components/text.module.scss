@@ -61,12 +61,13 @@
 	}
 }
 
+.h1, .h2, .h3, .p, .ol, .ul, .link{
+	color: $darkGray;
+}
 .teal {
 	color: $teal;
 }
-
 .h1, .h2, .h3, .p, .ol, .ul, .link, .teal{
-	color: $darkGray;
 	&::selection {
 		background-color: $teal;
 		color: $white;
