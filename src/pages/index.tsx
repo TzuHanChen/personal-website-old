@@ -1,5 +1,6 @@
 import Head from 'next/head'
 
+import Nav from '@/components/nav'
 import { TextShowcase } from '@/components/text'
 import { ButtonShowcase } from '@/components/button'
 
@@ -14,6 +15,7 @@ export default function Home() {
 			</Head>
 
 			<main>
+				<Nav />
 				<TextShowcase />
 				<ButtonShowcase />
 			</main>

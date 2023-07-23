@@ -1,6 +1,6 @@
 import type { AppProps } from 'next/app'
 
-// import '@/design-tokens/global.css';
+import '@/design-tokens/global.css';
 // import { NotoSansTC } from 'next/font/google'
 // const inter = Inter({ subsets: ['latin'] })
 
