@@ -7,7 +7,9 @@
 	border-radius: 24px;
 	background-color: $verdigris;
 	color: $white;
-	@include text(18px, 300, 24px);
+	font-size: $font-size-p-mobile;
+	font-weight: $font-weight-regular;
+	line-height: $line-height-p-mobile;
 }
 .button:hover, .button:active {
 	cursor: pointer;

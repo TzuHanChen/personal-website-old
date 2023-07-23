@@ -1,7 +1,7 @@
 import Head from 'next/head'
-import Link from 'next/link'
 
 import { TextShowcase } from '@/components/text'
+import { ButtonShowcase } from '@/components/button'
 
 export default function Home() {
 	return (
@@ -15,6 +15,7 @@ export default function Home() {
 
 			<main>
 				<TextShowcase />
+				<ButtonShowcase />
 			</main>
 		</>
 	)
