@@ -1,0 +1,43 @@
+@use '@/design-tokens/index.module' as *;
+$nav-height: 60px;
+
+nav {
+	position: fixed;
+	width: 100%;
+	height: $nav-height;
+	border: none;
+	background-color: $lightGray;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+	padding: 9px;
+}
+.home {
+	display: flex;
+	align-items: center;
+	p {
+		margin: 0;
+		margin-left: 9px;
+		color: $darkGray;
+	}
+}
+.logo {
+	height: 36px;
+	border-radius: 50%;
+}
+.nav-links {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0;
+	li {
+		list-style-type: none;
+		&:nth-child(2), &:nth-child(3) {
+			display: none;
+			@media (min-width: 600px) {
+				display: block;
+			}
+		}
+	}
+}

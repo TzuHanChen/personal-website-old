@@ -1,0 +1,74 @@
+@use '@/design-tokens/index.module' as *;
+
+@mixin text-mobile($m, $fs, $fw, $lh) {
+	margin: $m;
+	font-size: $fs;
+	font-weight: $fw;
+	line-height: $lh;
+}
+@mixin text-desktop($fs, $lh) {
+	@media (min-width: $breakpoint1) {
+		font-size: $fs;
+		line-height: $lh;
+	}
+}
+
+.h1 {
+	@include text-mobile($margin-h1-mobile, $font-size-h1-mobile, $font-weight-bold, $line-height-h1-mobile);
+	@include text-desktop($font-size-h1-desktop, $line-height-h1-desktop);
+}
+.h2 {
+	@include text-mobile($margin-h2-mobile, $font-size-h2-mobile, $font-weight-bold, $line-height-h2-mobile);
+}
+.h3 {
+	@include text-mobile($margin-h3-mobile, $font-size-h3-mobile, $font-weight-bold, $line-height-h3-mobile);
+}
+.p {
+	@include text-mobile($margin-p-mobile, $font-size-p-mobile, $font-weight-regular, $line-height-p-mobile);
+}
+
+.ul, .ol {
+	margin: 0;
+	padding: 0 0 0 24px;
+	@include text-mobile($margin-li-mobile, $font-size-li-mobile, $font-weight-regular, $line-height-li-mobile);
+}
+.ul {
+	list-style: disc;
+}
+.ol {
+	list-style: decimal;
+}
+
+.link {
+	text-decoration: none;
+	border-bottom: 3px solid $teal;
+	color: $darkGray;
+}
+.link:hover, .link:active {
+	cursor: pointer;
+	animation-name: linkChangeColor;
+	animation-duration: 0.6s;
+	animation-fill-mode: forwards;
+}
+@keyframes linkChangeColor {
+	from {
+		background-color: none;
+		color: $darkGray;
+	}
+	to {
+		background-color: $teal;
+		color: $white;
+	}
+}
+
+.teal {
+	color: $teal;
+}
+
+.h1, .h2, .h3, .p, .ol, .ul, .link, .teal{
+	color: $darkGray;
+	&::selection {
+		background-color: $teal;
+		color: $white;
+	}
+}

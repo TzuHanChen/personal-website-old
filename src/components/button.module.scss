@@ -1,0 +1,27 @@
+@use '@/design-tokens/index.module' as *;
+
+.button {
+	display: inline-block;
+	padding: 6px 18px;
+	border: 1px solid $verdigris;
+	border-radius: 24px;
+	background-color: $verdigris;
+	color: $white;
+	@include text(18px, 300, 24px);
+}
+.button:hover, .button:active {
+	cursor: pointer;
+	animation-name: buttonChangeColor;
+	animation-duration: 0.6s;
+	animation-fill-mode: forwards;
+}
+@keyframes buttonChangeColor {
+  from {
+	background-color: $verdigris;
+	color: $white;
+  }
+  to {
+    background-color: $white;
+    color: $teal;
+  }
+}
