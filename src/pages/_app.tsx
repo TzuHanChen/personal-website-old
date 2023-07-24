@@ -7,6 +7,7 @@ const noto = Noto_Sans_TC({
   display: 'swap',
 })
 
+import Nav from '@/components/nav';
 import '@/design-tokens/global.css';
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -17,6 +18,7 @@ export default function App({ Component, pageProps }: AppProps) {
           font-family: ${noto.style.fontFamily};
         }
       `}</style>
+      <Nav />
       <Component {...pageProps} />
     </>
   )
