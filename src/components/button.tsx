@@ -6,7 +6,7 @@ export default function Button({ ...props }) {
 	const inside = <button className={styles.button}>
 		{ props.children }</button>;
 	let outside = <></>;
-	if (props.external) {
+	if (props.newtab) {
 		outside = <Link href={props.href} target='_blank'>
 			{ inside }</Link>
 	} else {
@@ -20,7 +20,8 @@ export function ButtonShowcase() {
 	return (
 		<>
 			<Button href="/">button</Button>
-			<Button href="https://tzuhanchen.github.io" external>button</Button>
+			<Button href="https://tzuhanchen.github.io" newtab>
+				tzuhanchen</Button>
 		</>
 	)
 }

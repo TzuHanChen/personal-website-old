@@ -1,8 +1,9 @@
 import Head from 'next/head'
 
-import Nav from '@/components/nav'
-import { TextShowcase } from '@/components/text'
-import { ButtonShowcase } from '@/components/button'
+// import Nav from '@/components/nav'
+// import { TextShowcase } from '@/components/text'
+// import { ButtonShowcase } from '@/components/button'
+import { CardShowcase } from '@/components/card'
 
 export default function Home() {
 	return (
@@ -15,9 +16,10 @@ export default function Home() {
 			</Head>
 
 			<main>
-				<Nav />
-				<TextShowcase />
-				<ButtonShowcase />
+				{/* <Nav /> */}
+				{/* <TextShowcase /> */}
+				{/* <ButtonShowcase /> */}
+				<CardShowcase />
 			</main>
 		</>
 	)
