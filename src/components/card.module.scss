@@ -2,7 +2,7 @@
 
 .card {
 	border-radius: 24px;
-	background-color: $white;
+	background-color: $lightGray;
 	width: $card-width;
 }
 .card:hover {
@@ -24,10 +24,10 @@
 	border-radius: 24px 24px 0 0;
 }
 .text-area {
-	margin: 0 18px;
+	padding: 0 18px;
 	height: 126px;
 }
 .button-area {
-	margin: 18px;
+	padding: 18px;
 	text-align: right;
 }
