@@ -1,7 +1,7 @@
 import SEO from '@/lib/seo'
 
 // import Nav from '@/components/nav'
-// import { TextShowcase } from '@/components/text'
+import Text, { TextShowcase } from '@/components/text'
 // import { ButtonShowcase } from '@/components/button'
 // import { CardShowcase } from '@/components/card'
 
@@ -22,7 +22,10 @@ export default function Home() {
 				{/* <CardShowcase /> */}
 
 				<HeroSection>
-					test
+					<Text type="h1" align="center">你好，我是
+						<Text type="teal">陳子涵</Text>
+					</Text>
+					<Text type="h2" align="center">之前是前端網頁實習生，現在的目標是成為前端工程師</Text>
 				</HeroSection>
 			</main>
 		</>

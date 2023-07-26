@@ -1,0 +1,17 @@
+@use '../design-tokens/index.module.scss' as *;
+
+.hero-section {
+	margin: 0 auto;
+	width: 100%;
+	@media (min-width: $breakpoint2) {
+		max-width: 1080px;
+	}
+	min-height: 360px;
+	padding: 24px;
+	@media (min-width: $breakpoint1) {
+		padding: 36px;
+	}
+	@media (min-width: $breakpoint2) {
+		padding: 48px;
+	}
+}
