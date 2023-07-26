@@ -1,4 +1,4 @@
-import SEO from '@/components/seo'
+import SEO from '@/lib/seo'
 // import Nav from '@/components/nav'
 // import { TextShowcase } from '@/components/text'
 // import { ButtonShowcase } from '@/components/button'
