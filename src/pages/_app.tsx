@@ -10,7 +10,7 @@ const noto = Noto_Sans_TC({
 })
 
 import Nav from '@/components/nav';
-import '@/design-tokens/global.css';
+import '@/design-tokens/global.scss';
 
 export default function App({ Component, pageProps }: AppProps) {
   return (

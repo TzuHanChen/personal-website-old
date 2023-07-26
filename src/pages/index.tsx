@@ -1,9 +1,11 @@
 import SEO from '@/lib/seo'
 
 // import Nav from '@/components/nav'
-import { TextShowcase } from '@/components/text'
+// import { TextShowcase } from '@/components/text'
 // import { ButtonShowcase } from '@/components/button'
 // import { CardShowcase } from '@/components/card'
+
+import HeroSection from '@/layouts/hero-section'
 
 export default function Home() {
 	return (
@@ -15,9 +17,13 @@ export default function Home() {
 
 			<main>
 				{/* <Nav /> */}
-				<TextShowcase />
+				{/* <TextShowcase /> */}
 				{/* <ButtonShowcase /> */}
 				{/* <CardShowcase /> */}
+
+				<HeroSection>
+					test
+				</HeroSection>
 			</main>
 		</>
 	)

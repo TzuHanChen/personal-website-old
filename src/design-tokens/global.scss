@@ -1,3 +1,5 @@
+@use './index.module.scss' as *;
+
 *, *::before, *::after {
 	box-sizing: border-box;
 	margin: 0;
@@ -5,6 +7,10 @@
 }
 body {
 	font-family: 'Noto Sans TC', sans-serif;
+}
+main {
+	padding-top: $nav-height;
+	background-color: $lightGray;
 }
 img {
 	max-width: 100%;	

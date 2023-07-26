@@ -1,3 +1,3 @@
 export default function HeroSection({ ...props }) {
-	return ( <></> );
+	return ( <>{ props.children }</> );
 }
