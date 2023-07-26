@@ -44,7 +44,7 @@
 		}
 		&:nth-child(2), &:nth-child(3) {
 			display: none;
-			@media (min-width: 600px) {
+			@media (min-width: $breakpoint1) {
 				display: block;
 			}
 		}

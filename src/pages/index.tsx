@@ -1,6 +1,7 @@
 import SEO from '@/lib/seo'
+
 // import Nav from '@/components/nav'
-// import { TextShowcase } from '@/components/text'
+import { TextShowcase } from '@/components/text'
 // import { ButtonShowcase } from '@/components/button'
 // import { CardShowcase } from '@/components/card'
 
@@ -14,7 +15,7 @@ export default function Home() {
 
 			<main>
 				{/* <Nav /> */}
-				{/* <TextShowcase /> */}
+				<TextShowcase />
 				{/* <ButtonShowcase /> */}
 				{/* <CardShowcase /> */}
 			</main>
