@@ -1,9 +1,9 @@
 import SEO from '@/lib/seo'
 import Text from '@/components/text'
 import Button from '@/components/button'
-// import { CardShowcase } from '@/components/card'
-
+import { CardShowcase } from '@/components/card'
 import HeroSection from '@/layouts/hero-section'
+import GridSection, { Grid } from '@/layouts/grid-section'
 import TextSection from '@/layouts/text-section'
 import ImageSection from '@/layouts/image-section'
 
@@ -15,6 +15,17 @@ function Hero() {
 			</Text>
 			<Text type="h2" align="center">之前是前端網頁實習生，現在的目標是成為前端工程師</Text>
 		</HeroSection>
+	)
+}
+
+function Projects() {
+	return (
+		<GridSection>
+			<Text type="h2">專案</Text>
+			<Grid>
+				<CardShowcase />
+			</Grid>
+		</GridSection>
 	)
 }
 
@@ -40,6 +51,7 @@ export default function Home() {
 
 			<main>
 				<Hero />
+				<Projects />
 				<About />
 				<ImageSection src="/images/personal-website.png"
 					alt="個人網站主視覺" />

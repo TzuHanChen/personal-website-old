@@ -1,42 +1,32 @@
-/* layout */
-$grid-gap-sm: 30px;
-$grid-gap-md: 45px;
-$grid-gap-lg: 60px;
+@use '../design-tokens/index.module.scss' as *;
 
-.content {
+.grid-section {
 	margin: 0 auto;
-	width: 100%;
-	max-width: $card-width;
+	width: $card-width;
 	padding: 24px 0;
-	@media (min-width: $breakpoint) {
-		max-width: calc($card-width * 2 + $grid-gap-md);
+	@media (min-width: $breakpoint1) {
+		width: calc($card-width * 2 + $grid-gap-md);
 		padding: 36px 0;
 	}
 	@media (min-width: $breakpoint2) {
-		max-width: calc($card-width * 3 + $grid-gap-lg * 2);
+		width: calc($card-width * 3 + $grid-gap-lg * 2);
 		padding: 48px 0;
 	}
 }
 
-.grid-area {
-	margin: 48px auto;
+.grid {
 	display: grid;
+	margin: $grid-gap-sm 0;
 	grid-template-columns: repeat(1, 1fr);
 	gap: $grid-gap-sm;
-	@media (min-width: $breakpoint) {
+	@media (min-width: $breakpoint1) {
+		margin: $grid-gap-md 0;
 		grid-template-columns: repeat(2, 1fr);
 		gap: $grid-gap-md;
 	}
 	@media (min-width: $breakpoint2) {
+		margin: $grid-gap-lg 0;
 		grid-template-columns: repeat(3, 1fr);
 		gap: $grid-gap-lg;
 	}
-}
-
-.contact {
-	display: flex;
-	align-items: center;
-}
-.contact img {
-	width: 24px;
 }
