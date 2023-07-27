@@ -1,11 +1,10 @@
 import SEO from '@/lib/seo'
 import Text from '@/components/text'
 import Button from '@/components/button'
-import { CardShowcase } from '@/components/card'
+import Card from '@/components/card'
 import HeroSection from '@/layouts/hero-section'
 import GridSection, { Grid } from '@/layouts/grid-section'
 import TextSection from '@/layouts/text-section'
-import ImageSection from '@/layouts/image-section'
 
 function Hero() {
 	return (
@@ -23,7 +22,57 @@ function Projects() {
 		<GridSection>
 			<Text type="h2">專案</Text>
 			<Grid marginTop>
-				<CardShowcase />
+				<Card image="/images/distraction-loves-me.png"
+					alt="數位分心" title="數位分心"
+					info="數位分心教材與研究團隊的網站" button="瀏覽網站"
+					href="https://distractionlovesme.lab.nycu.edu.tw/"
+					newtab />
+				<Card image="/images/teamie.png"
+					alt="Teamie" title="Teamie"
+					info="開發中的專案團隊媒合平台" button="瀏覽網站"
+					href="https://teamie.tw/"
+					newtab />
+			</Grid>
+		</GridSection>
+	)
+}
+
+function Practices() {
+	return (
+		<GridSection>
+			<Text type="h2">練習</Text>
+			<Grid marginTop>
+				<Card image="/images/tic-tac-toe.png"
+					alt="井字遊戲" title="井字遊戲"
+					info="可以穿梭時空的井字遊戲" button="作品展示"
+					href="https://tzuhanchen.github.io/tic-tac-toe"
+					newtab />
+				<Card image="/images/api-connection.png"
+					alt="API 串接" title="API 串接"
+					info="利用三種方法隨機讀取三種資料" button="作品展示"
+					href="https://tzuhanchen.github.io/api-connection"
+					newtab />
+			</Grid>
+		</GridSection>
+	)
+}
+
+function Articles() {
+	return (
+		<GridSection>
+			<Text type="h2">文章</Text>
+			<Grid marginTop>
+				<Card image="/images/arete-internship.png"
+					alt="亞瑞特實習" title="亞瑞特實習"
+					info="在亞瑞特實習的期間撰寫的實習日誌與任務成果"
+					button="閱讀紀錄"
+					href="https://tzuhanchen.github.io/arete-internship"
+					newtab/>
+				<Card image="/images/tech-notes.png"
+					alt="技術筆記" title="技術筆記"
+					info="依照學習地圖分類列出的筆記" button="閱讀筆記"
+					href="https://tzuhanchen.github.io/tech-notes"
+					newtab/>
 			</Grid>
 		</GridSection>
 	)
@@ -52,9 +101,9 @@ export default function Home() {
 			<main>
 				<Hero />
 				<Projects />
+				<Practices />
+				<Articles />
 				<About />
-				<ImageSection src="/images/personal-website.png"
-					alt="個人網站主視覺" />
 			</main>
 		</>
 	)

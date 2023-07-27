@@ -1,46 +1,34 @@
-import Head from 'next/head';
-import Layout from '../../components/layout';
-import { getAllPostIds, getPostData } from '../../lib/posts';
-import Date from '../../components/date';
 import { GetStaticPaths, GetStaticProps } from 'next';
-import utilStyles from '../../styles/utils.module.css';
+
+import { getAllRecordsIds, getRecordData } from '@/lib/records';
+import SEO from '@/lib/seo';
 
 export const getStaticPaths: GetStaticPaths = async () => {
-	const paths = getAllPostIds();
-	return {
-		paths,
-		fallback: false
-	}
+	const paths = getAllRecordsIds();
+	return { paths, fallback: false }
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-	const postData = await getPostData(params?.id as string);
-	return {
-		props: {
-			postData
-		}
-	};
+	const recordData = await getRecordData(params?.id as string);
+	return { props: { recordData } }
 }
 
 export default function Post(
-	{ postData }:
-	{ postData: { title: string, date: string, contentHtml: string } }) {
+	{ recordData }:
+	{ recordData: { id: string, title: string, date: string, contentHtml: string } }) {
 	return (
-		<Layout>
-			<Head>
-				<title>{postData.title}</title>
-			</Head>
+		<>
+			<SEO title={recordData.title}
+				description="陳子涵的自我介紹"
+				url={`/records${recordData.id}`}
+				image="/images/personal-website-preview.png" />
 
 			<article>
-				<h1 className={utilStyles.headingXl}>
-					{postData.title}
+				<h1>
+					{recordData.title}
 				</h1>
-				<div className={utilStyles.lightText}>
-					<Date dateString={postData.date} />
-					{'　'}<span>SSG</span>
-				</div>
-				<div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />		
+				<div dangerouslySetInnerHTML={{ __html: recordData.contentHtml }} />		
 			</article>
-		</Layout>
+		</>
 	);
 }

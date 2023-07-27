@@ -29,7 +29,7 @@ export function CardShowcase() {
 	const oneCard = <Card image="/images/personal-website.png"
 	alt="personal website" title="個人網站"
 	info="展示專案、文章與經歷的網站" button="作品說明"
-	href="/personal-website" />;
+	href="/records/ssg-ssr" />;
 	
 	return (
 		<>

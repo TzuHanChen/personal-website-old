@@ -7,7 +7,7 @@ export default function Nav() {
 	return (
 		<nav className={styles.nav}>
 			<Link href="/" className={styles.home}>
-				<img src="images/logo.svg" alt="logo" className={styles.logo} />
+				<img src="/images/logo.svg" alt="logo" className={styles.logo} />
 				<p className={styles.name}>陳子涵</p>
 			</Link>
 			<div className={styles.toSection}>
