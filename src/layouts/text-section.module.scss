@@ -2,6 +2,12 @@
 
 .text-section {
 	margin: 0 auto;
-	padding: 24px;
 	max-width: $breakpoint1;
+	padding: 24px;
+	@media (min-width: $breakpoint1) {
+		padding: 36px;
+	}
+	@media (min-width: $breakpoint2) {
+		padding: 48px;
+	}
 }
