@@ -1,0 +1,7 @@
+@use '../design-tokens/index.module.scss' as *;
+
+.text-section {
+	margin: 0 auto;
+	padding: 24px;
+	max-width: $breakpoint1;
+}

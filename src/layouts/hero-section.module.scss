@@ -4,7 +4,7 @@
 	margin: 0 auto;
 	width: 100%;
 	@media (min-width: $breakpoint2) {
-		max-width: 1080px;
+		max-width: $breakpoint2;
 	}
 	min-height: 360px;
 	padding: 24px;

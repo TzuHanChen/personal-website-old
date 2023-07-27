@@ -33,16 +33,6 @@ $grid-gap-lg: 60px;
 	}
 }
 
-.text-area {
-	padding: 24px;
-	max-width: calc($card-width * 2 + $grid-gap-md);
-}
-
-.button-area {
-	text-align: right;
-	margin: 18px;
-}
-
 .photo {
 	margin: 0 auto;
 	width: 120px;
@@ -56,8 +46,4 @@ $grid-gap-lg: 60px;
 }
 .contact img {
 	width: 24px;
-}
-
-footer {
-	background-color: $lightGray;
 }

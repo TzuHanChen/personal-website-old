@@ -2,14 +2,14 @@
 
 .button {
 	display: inline-block;
-	padding: 2px 17px;
+	padding: 8px 17px;
 	border: 1px solid $verdigris;
 	border-radius: 24px;
 	background-color: $verdigris;
 	color: $white;
 	font-size: $font-size-p-mobile;
 	font-weight: $font-weight-regular;
-	line-height: $line-height-p-mobile;
+	line-height: 18px;
 }
 .button:hover, .button:active {
 	cursor: pointer;
