@@ -1,6 +1,7 @@
 import Image from 'next/image'
 
 import SEO from '@/lib/seo'
+import TotalUsers from '@/lib/totalUsers'
 import Text from '@/components/text'
 import Button from '@/components/button'
 import TextSection from '@/layouts/text-section'
@@ -101,7 +102,7 @@ function Skills() {
 					</Text>
 					<Text type="h3">透過 GA4 收集到的<br />
 						本網站使用者總數為{' '}
-						<Text type="teal">35</Text>
+						<Text type="teal"><TotalUsers /></Text>
 					</Text>
 				</div>
 
