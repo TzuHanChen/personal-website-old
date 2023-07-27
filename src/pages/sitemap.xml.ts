@@ -1,19 +1,28 @@
 import { GetServerSideProps } from 'next';
-import { getSortedPostsData } from "../lib/posts";
+// import { getSortedRecordsData } from "../lib/records";
 
-const DEPLOYMENT_URL = 'https://nextjs-blog-tzuhanchen.vercel.app';
+const DEPLOYMENT_URL = 'https://tzuhanchen.vercel.app';
 
-function generateSiteMap(posts) {
-	return `<?xml version="1.0" encoding="UTF-8"?>
+function generateSiteMap() {
+	return `<xml version="1.0" encoding="UTF-8">
 		<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 			<!-- Manually set the URLs I already know -->
 			<url>
 				<loc>${DEPLOYMENT_URL}</loc>
 			</url>
 			<url>
-				<loc>${DEPLOYMENT_URL}/sitemap.xml</loc>
+				<loc>${DEPLOYMENT_URL}/about</loc>
 			</url>
 			<url>
+				<loc>${DEPLOYMENT_URL}/sitemap.xml</loc>
+			</url>
+		</urlset>
+	</xml>`;
+}
+
+function InProgress() {
+	return `
+	<url>
 				<loc>${DEPLOYMENT_URL}/robots.txt</loc>
 			</url>
 			<url>
@@ -28,26 +37,28 @@ function generateSiteMap(posts) {
 			<url>
 				<loc>${DEPLOYMENT_URL}/clsx-practice</loc>
 			</url>
-	  
-			<!-- Dynamically set the URLs of posts -->
-			${posts.map(({ id }) => {
-				return `
-					<url>
-						<loc>${DEPLOYMENT_URL}/posts/${id}</loc>
-					</url>
-				`;
-			})
-			.join('')}
-		</urlset>
-	</xml>`;
+	  `
+			// <!-- Dynamically set the URLs of posts -->
+			// 
+			// ${
+				// records.map(({ id }) => {
+		// return `
+					// <url>
+						// <loc>${DEPLOYMENT_URL}/posts/${id}</loc>
+					// </url>
+				// `;
+	// })
+			// .join('')
+		// }
 }
 
 export const getServerSideProps: GetServerSideProps = async ({ res }) => {
 	// Get all post ids
-	const postIds = getSortedPostsData();
+	// const recordsIds = getSortedRecordsData();
 
 	// Generate the XML sitemap with the posts data
-	const sitemap = generateSiteMap(postIds);
+	// const sitemap = generateSiteMap(recordsIds);
+	const sitemap = generateSiteMap();
 
 	res.setHeader('Content-Type', 'text/xml');
 	// Send the XML to the browser
