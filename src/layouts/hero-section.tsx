@@ -5,5 +5,5 @@ export default function HeroSection({ ...props }) {
 		<section className={styles["hero-section"]}>
 			{ props.children }
 		</section>
-	);
+	)
 }

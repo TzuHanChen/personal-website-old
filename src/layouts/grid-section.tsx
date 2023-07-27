@@ -1,3 +1,3 @@
 export default function GridSection({ ...props }) {
-	return ( <></> );
+	return ( <></> )
 }

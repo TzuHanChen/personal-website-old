@@ -5,5 +5,5 @@ export default function TextSection({ ...props }) {
 		<section className={styles["text-section"]}>
 			{ props.children }
 		</section>
-	);
+	)
 }
