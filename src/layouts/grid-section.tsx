@@ -9,8 +9,10 @@ export default function GridSection({ ...props }) {
 }
 
 export function Grid({ ...props }) {
+	const addSpace = (props.marginTop) ? styles.mt : '';
+	const allClass = `${styles.grid} ${addSpace}`
 	return (
-		<div className={styles.grid}>
+		<div className={allClass}>
 			{ props.children }
 		</div>
 	)

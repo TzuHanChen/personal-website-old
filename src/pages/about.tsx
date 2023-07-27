@@ -4,6 +4,7 @@ import SEO from '@/lib/seo'
 import Text from '@/components/text'
 import Button from '@/components/button'
 import TextSection from '@/layouts/text-section'
+import GridSection, { Grid } from '@/layouts/grid-section'
 import styles from '@/design-tokens/utilities.module.scss'
 
 function Intro() {
@@ -71,6 +72,95 @@ function Education() {
 	)
 }
 
+function Skills() {
+	return (
+		<GridSection>
+			<Grid>
+				<div>
+					<Text type="h2">技能</Text>
+
+					<Text type="h3">網頁前端</Text>
+					<Text>Next.js, React, SCSS</Text>
+					<Text type="h3">版本控制</Text>
+					<Text>Git, GitHub, GitLab</Text>
+					<Text type="h3">介面設計、使用者體驗</Text>
+					<Text>Figma, FigJam, Miro</Text>
+				</div>
+
+				<div>
+					<Text type="h2">證書</Text>
+
+					{/* <Text>參加{' '}
+						<Text type="link" href="https://growonairtw.withgoogle.com/events/digitaleducation">
+						Google 數位人才探索計畫 </Text><br />
+						於 2023/05 取得
+					</Text> */}
+					<Text type="ul">
+						<li><Text type="link" href="https://www.credential.net/e8426561-bf2b-4951-816e-4bdfeeb6a6c7">Google Analytics (分析) 認證</Text></li>
+						<li><Text type="link" href="https://oss.uppmkt.com/202305/kep/cer3/ga4/YHhGjM.png">Google 數位人才結業證書</Text></li>
+					</Text>
+					<Text type="h3">透過 GA4 收集到的<br />
+						本網站使用者總數為{' '}
+						<Text type="teal">35</Text>
+					</Text>
+				</div>
+
+				<div>
+					<Text type="h2">認可</Text>
+
+					<Text type="h3">放視大賞 - 入圍　2021/05</Text>
+					<Text>畢業專題＂珍食力＂入圍<br />2021 放視大賞的行動應用類 -<br />軟體內容創意企劃組決賽。</Text>
+					<Text type="ul">
+						<li>使用者體驗、介面設計，<br />Miro + Figma</li>
+					</Text>
+					<Text>
+						<Text type="link" href="https://www.dcaward-vgw.org.tw/tw/onlineExhibition/winningWorks/detail/31427">
+							放視大賞得獎作品頁面</Text>
+					</Text>
+				</div>
+			</Grid>
+		</GridSection>
+	)
+}
+
+function Contact() {
+	return (
+		<GridSection>
+			<Grid>
+				<div>
+					<Text type="h2">聯絡資訊</Text>
+
+					<Text>居住地：台灣，台北市</Text>
+					<Text>Email：
+						<Text type="link" href="mailto:hahachentzuhan@gmail.com">hahachentzuhan@gmail.com</Text>
+					</Text>
+				</div>
+
+				<div>
+					<Text type="h2">網站連結</Text>
+
+					<Text>
+						<Text type="link" href="https://github.com/TzuHanChen">GitHub</Text>
+					</Text>
+					<Text>
+						<Text type="link" href="https://www.linkedin.com/in/tzuhanchen/">LinkdeIn</Text>
+					</Text>
+				</div>
+
+				<div>
+					<Text type="h2">履歷</Text>
+
+					<Text>
+						<Button href="/TzuHanChen_Resume.pdf" newtab>履歷 PDF 檔案</Button>
+					</Text>
+					<br />
+					<Text align="right">© 2023 陳子涵</Text>
+				</div>
+			</Grid>
+		</GridSection>
+	)
+}
+
 export default function Home() {
 	return (
 		<>
@@ -83,6 +173,8 @@ export default function Home() {
 				<Intro />
 				<Experience />
 				<Education />
+				<Skills />
+				<Contact />
 			</main>
 		</>
 	)

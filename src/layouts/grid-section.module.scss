@@ -16,17 +16,24 @@
 
 .grid {
 	display: grid;
-	margin: $grid-gap-sm 0;
 	grid-template-columns: repeat(1, 1fr);
 	gap: $grid-gap-sm;
 	@media (min-width: $breakpoint1) {
-		margin: $grid-gap-md 0;
 		grid-template-columns: repeat(2, 1fr);
 		gap: $grid-gap-md;
 	}
 	@media (min-width: $breakpoint2) {
-		margin: $grid-gap-lg 0;
 		grid-template-columns: repeat(3, 1fr);
 		gap: $grid-gap-lg;
+	}
+}
+
+.mt {
+	margin-top: $grid-gap-sm;
+	@media (min-width: $breakpoint1) {
+		margin-top: $grid-gap-md;
+	}
+	@media (min-width: $breakpoint2) {
+		margin-top: $grid-gap-lg;
 	}
 }

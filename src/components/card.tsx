@@ -26,32 +26,15 @@ export default function Card({ ...props }) {
 }
 
 export function CardShowcase() {
+	const oneCard = <Card image="/images/personal-website.png"
+	alt="personal website" title="個人網站"
+	info="展示專案、文章與經歷的網站" button="作品說明"
+	href="/personal-website" />;
+	
 	return (
 		<>
-			<Card image="/images/medical-forum.png"
-				alt="medical forum" title="醫療論壇"
-				info="供使用者發文討論醫療相關議題的網站" button="作品說明"
-				href="/medical-forum" />
-			<Card image="/images/api-connection.png"
-				alt="api connection" title="API 串接"
-				info="利用三種方法隨機讀取三種資料" button="作品展示"
-				href="/api-connection" newtab />
-			<Card image="/images/medical-forum.png"
-				alt="medical forum" title="醫療論壇"
-				info="供使用者發文討論醫療相關議題的網站" button="作品說明"
-				href="/medical-forum" />
-			<Card image="/images/api-connection.png"
-				alt="api connection" title="API 串接"
-				info="利用三種方法隨機讀取三種資料" button="作品展示"
-				href="/api-connection" newtab />
-			<Card image="/images/medical-forum.png"
-				alt="medical forum" title="醫療論壇"
-				info="供使用者發文討論醫療相關議題的網站" button="作品說明"
-				href="/medical-forum" />
-			<Card image="/images/api-connection.png"
-				alt="api connection" title="API 串接"
-				info="利用三種方法隨機讀取三種資料" button="作品展示"
-				href="/api-connection" newtab />
+			{ oneCard }{ oneCard }{ oneCard }
+			{ oneCard }{ oneCard }{ oneCard }
 		</>
 	)
 }

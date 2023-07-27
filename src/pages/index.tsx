@@ -22,7 +22,7 @@ function Projects() {
 	return (
 		<GridSection>
 			<Text type="h2">專案</Text>
-			<Grid>
+			<Grid marginTop>
 				<CardShowcase />
 			</Grid>
 		</GridSection>
