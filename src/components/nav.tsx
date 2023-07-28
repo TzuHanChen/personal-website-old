@@ -14,10 +14,10 @@ export default function Nav() {
 				<p className={styles.name}>陳子涵</p>
 			</Link>
 			<div className={styles.toSection}>
-				<Button href="#project">專案</Button>
-				<Button href="#practice">練習</Button>
-				<Button href="#article">文章</Button>
-				<Button href="#about">關於我</Button>
+				<Button href="/#project">專案</Button>
+				<Button href="/#practice">練習</Button>
+				<Button href="/#article">文章</Button>
+				<Button href="/#about">關於我</Button>
 			</div>
 		</nav>
 	)

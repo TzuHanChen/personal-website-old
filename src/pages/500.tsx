@@ -1,6 +1,6 @@
 import Head from "next/head"
 
-import FullSection from "@/layouts/full-sectoin"
+import FullSection from "@/layouts/full-section"
 import Text from "@/components/text"
 import Button from "@/components/button"
 

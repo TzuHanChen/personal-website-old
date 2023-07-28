@@ -17,9 +17,9 @@ function Hero() {
 	)
 }
 
-function Projects() {
+function Project() {
 	return (
-		<GridSection>
+		<GridSection id="project">
 			<Text type="h2">專案</Text>
 			<Grid marginTop>
 				<Card image="/images/distraction-loves-me.png"
@@ -37,9 +37,9 @@ function Projects() {
 	)
 }
 
-function Practices() {
+function Practice() {
 	return (
-		<GridSection>
+		<GridSection id="practice">
 			<Text type="h2">練習</Text>
 			<Grid marginTop>
 				<Card image="/images/tic-tac-toe.png"
@@ -57,9 +57,9 @@ function Practices() {
 	)
 }
 
-function Articles() {
+function Article() {
 	return (
-		<GridSection>
+		<GridSection id="article">
 			<Text type="h2">文章</Text>
 			<Grid marginTop>
 				<Card image="/images/arete-internship.png"
@@ -80,7 +80,7 @@ function Articles() {
 
 function About() {
 	return (
-		<TextSection>
+		<TextSection id="about">
 			<Text type="h2">關於我</Text>
 			<Text>參與過產品開發流程的各項工作後，我選擇以前端工程為本人職業，並期許自己能夠利用過往經驗，與來自各領域的同事順利合作。</Text>
 			<Text align="right">
@@ -100,9 +100,9 @@ export default function Home() {
 
 			<main>
 				<Hero />
-				<Projects />
-				<Practices />
-				<Articles />
+				<Project />
+				<Practice />
+				<Article />
 				<About />
 			</main>
 		</>

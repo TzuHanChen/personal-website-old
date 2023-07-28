@@ -2,7 +2,7 @@ import styles from './grid-section.module.scss';
 
 export default function GridSection({ ...props }) {
 	return (
-		<section className={styles["grid-section"]}>
+		<section id={props.id} className={styles["grid-section"]}>
 			{ props.children }
 		</section>
 	)
