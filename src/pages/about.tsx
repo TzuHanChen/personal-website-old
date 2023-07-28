@@ -78,11 +78,10 @@ function Skills() {
 				<div>
 					<Text type="h2">證書</Text>
 
-					{/* <Text>參加{' '}
+					<Text>參加{' '}
 						<Text type="link" href="https://growonairtw.withgoogle.com/events/digitaleducation">
 						Google 數位人才探索計畫 </Text><br />
-						於 2023/05 取得
-					</Text> */}
+						於 2023/05 取得</Text>
 					<Text type="ul">
 						<li><Text type="link" href="https://www.credential.net/e8426561-bf2b-4951-816e-4bdfeeb6a6c7">Google Analytics (分析) 認證</Text></li>
 						<li><Text type="link" href="https://oss.uppmkt.com/202305/kep/cer3/ga4/YHhGjM.png">Google 數位人才結業證書</Text></li>
