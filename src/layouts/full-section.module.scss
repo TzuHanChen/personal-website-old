@@ -2,6 +2,7 @@
 
 .full-section {
 	height: calc(100vh - $nav-height);
+	padding: 24px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;

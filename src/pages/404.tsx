@@ -12,8 +12,9 @@ export default function Custom404() {
 			</Head>
 			<main>
 				<FullSection>
-					<Text type="h1">404 Not Found</Text>
-					<Text>此頁面不存在，也許是手動輸入的網址有誤。你可以編輯網址，或者</Text>
+					<Text type="h1" align="center">404 Not Found</Text>
+					<Text align="center">此頁面不存在。<br />
+					你可以編輯網址，或者</Text>
 					<Button href="/">回到首頁</Button>
 				</FullSection>
 			</main>
