@@ -16,27 +16,16 @@ function generateSiteMap() {
 			<url>
 				<loc>${DEPLOYMENT_URL}/sitemap.xml</loc>
 			</url>
+			<url>
+				<loc>${DEPLOYMENT_URL}/robots.txt</loc>
+			</url>
 		</urlset>
 	</xml>`;
 }
 
 function InProgress() {
 	return `
-	<url>
-				<loc>${DEPLOYMENT_URL}/robots.txt</loc>
-			</url>
-			<url>
-				<loc>${DEPLOYMENT_URL}/500</loc>
-			</url>
-			<url>
-				<loc>${DEPLOYMENT_URL}/api-practice</loc>
-			</url>
-			<url>
-				<loc>${DEPLOYMENT_URL}/404</loc>
-			</url>
-			<url>
-				<loc>${DEPLOYMENT_URL}/clsx-practice</loc>
-			</url>
+			
 	  `
 			// <!-- Dynamically set the URLs of posts -->
 			// 

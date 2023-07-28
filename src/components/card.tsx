@@ -14,6 +14,7 @@ export default function Card({ ...props }) {
 			<div className={styles["text-area"]}>
 				<Text type="h3">{props.title}</Text>
 				<Text type="p">{props.info}</Text>
+				<Text><Text type="teal">{props.tag}</Text></Text>
 			</div>
 
 			<div className={styles["button-area"]}>
