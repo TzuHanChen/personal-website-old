@@ -12,7 +12,7 @@ function Intro() {
 	return (
 		<TextSection>
 			<Image src="/images/photo.png" alt="photo"
-				width={120} height={120}
+				width={120} height={120} priority={true}
 				className={`${styles.center} ${styles.circle}`} />
 
 			<Text type="h2" align="center">你好，我是
@@ -56,19 +56,6 @@ function Experience() {
 				<li>開發論壇網站的帳號、文章、留言、收藏、追蹤等功能。</li>
 				<li>參與使用者體驗規劃，負責後端，與介面設計和前端的同學合作。</li>
 			</Text>
-		</TextSection>
-	)
-}
-
-function Education() {
-	return (
-		<TextSection>
-			<Text type="h2">學歷</Text>
-
-			<Text type="h3">
-				<Text type="teal">國立台中教育大學 - 學士</Text>　2017/09 ~ 2021/06
-			</Text>
-			<Text>就讀數位內容科技學系。選修兩個群組課程：數位技術應用、數位設計。</Text>
 		</TextSection>
 	)
 }
@@ -124,6 +111,19 @@ function Skills() {
 	)
 }
 
+function Education() {
+	return (
+		<TextSection>
+			<Text type="h2">學歷</Text>
+
+			<Text type="h3">
+				<Text type="teal">國立台中教育大學 - 學士</Text>　2017/09 ~ 2021/06
+			</Text>
+			<Text>就讀數位內容科技學系。選修兩個群組課程：數位技術應用、數位設計。</Text>
+		</TextSection>
+	)
+}
+
 function Contact() {
 	return (
 		<GridSection>
@@ -173,8 +173,8 @@ export default function Home() {
 			<main>
 				<Intro />
 				<Experience />
-				<Education />
 				<Skills />
+				<Education />
 				<Contact />
 			</main>
 		</>
