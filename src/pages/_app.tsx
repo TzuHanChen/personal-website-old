@@ -38,7 +38,7 @@ function Font() {
 function GA4() {
 	return (
 		<>
-			<Script async src="https://www.googletagmanager.com/gtag/js?id=G-4FQPG607TH"></Script>
+			<Script async src="https://www.googletagmanager.com/gtag/js?id=G-L1VLJWN6YZ"></Script>
 			<Script id="google-analytics">{`
 				window.dataLayer = window.dataLayer || [];
 				function gtag(){dataLayer.push(arguments);}
@@ -56,8 +56,8 @@ export default function App({ Component, pageProps }: AppProps) {
 			<Head>
 				<Favicon />
 				<Font />
-				<GA4 />
 			</Head>
+			<GA4 />
 
 			<Nav />
 			<Component {...pageProps} />
