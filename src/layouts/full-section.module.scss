@@ -1,0 +1,9 @@
+@use '../design-tokens/index.module.scss' as *;
+
+.full-section {
+	height: calc(100vh - $nav-height);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}

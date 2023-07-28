@@ -16,6 +16,10 @@
 
 利用 Material Symbols + FontAwesome 更新現有圖示、製作按鈕
 
+## 紀錄
+
+讀取 Markdown 再產生紀錄
+
 ## 首頁
 
 新增學習資源、活動紀錄等等
