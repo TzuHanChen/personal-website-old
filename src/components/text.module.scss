@@ -67,7 +67,7 @@
 .teal {
 	color: $teal;
 }
-.h1, .h2, .h3, .p, .ol, .ul, .link, .teal{
+.h1, .h2, .h3, .p, .ol li, .ul li, .link, .teal{
 	&::selection {
 		background-color: $teal;
 		color: $white;

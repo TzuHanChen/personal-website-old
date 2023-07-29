@@ -146,7 +146,7 @@ function Contact() {
 						<Text type="link" href="https://vercel.com/tzuhanchen">Vercel</Text>
 					</Text>
 					<Text>
-						<Text type="link" href="https://www.linkedin.com/in/tzuhanchen/">LinkdeIn</Text>
+						<Text type="link" href="https://www.linkedin.com/in/tzuhanchen/">LinkedIn</Text>
 					</Text>
 				</div>
 
