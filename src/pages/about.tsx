@@ -143,6 +143,9 @@ function Contact() {
 						<Text type="link" href="https://github.com/TzuHanChen">GitHub</Text>
 					</Text>
 					<Text>
+						<Text type="link" href="https://vercel.com/tzuhanchen">Vercel</Text>
+					</Text>
+					<Text>
 						<Text type="link" href="https://www.linkedin.com/in/tzuhanchen/">LinkdeIn</Text>
 					</Text>
 				</div>
