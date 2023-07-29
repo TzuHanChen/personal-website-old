@@ -1,7 +1,7 @@
 import useSWR from 'swr';
 
 export default function TotalUsers() {
-	const url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSFIGLw3THQARBNhQTVJnFXcyfOATc3nLL9Z9zXlHKjlZdWSvtT8I1IcShj3x0ARK3XmcwF9OIzoVid/pub?gid=1546155644&single=true&output=tsv";
+	const url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSFIGLw3THQARBNhQTVJnFXcyfOATc3nLL9Z9zXlHKjlZdWSvtT8I1IcShj3x0ARK3XmcwF9OIzoVid/pub?gid=1358621105&single=true&output=tsv";
 
 	const fetcher = (url: string) =>
 		fetch(url).then((res) => res.text());
