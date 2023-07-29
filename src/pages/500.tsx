@@ -8,6 +8,7 @@ export default function Custom500() {
 	return (
 		<>
 			<Head>
+				<title>500</title>
 				<meta name="robots" content="noindex" />
 			</Head>
 			<main>

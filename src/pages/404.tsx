@@ -8,6 +8,7 @@ export default function Custom404() {
 	return (
 		<>
 			<Head>
+				<title>404</title>
 				<meta name="robots" content="noindex" />
 			</Head>
 			<main>
