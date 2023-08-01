@@ -164,7 +164,7 @@ function Contact() {
 	)
 }
 
-export default function Home() {
+export default function About() {
 	return (
 		<>
 			<SEO title="陳子涵 | 關於我"

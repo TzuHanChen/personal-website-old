@@ -41,7 +41,7 @@ function Project() {
 					info="開發中的專案團隊媒合平台"
 					tag="Next.js, TypeScript, SCSS"
 					button="敬請期待"
-					href="/"
+					// href="https://teamie.tw"
 					newtab />
 				
 				<Card image="/images/personal-website-old.png"
@@ -134,7 +134,7 @@ function About() {
 	)
 }
 
-export default function Home() {
+export default function Index() {
 	return (
 		<>
 			<SEO title="陳子涵 TzuHan_Chen"
