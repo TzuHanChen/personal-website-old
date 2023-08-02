@@ -78,14 +78,14 @@ function Practice() {
 				<Card image="/images/nextjs-blog.png"
 					alt="部落格" title="部落格"
 					info="練習各種網頁渲染方式的網站"
-					tag="Next.js, TypeScript, CSS, Markdown"
+					tag="Next.js, TypeScript, CSS, useEffect, SWR, Markdown"
 					button="作品展示"
 					href="https://nextjs-blog-tzuhanchen.vercel.app"
 					newtab />
 				<Card image="/images/tic-tac-toe.png"
 					alt="井字遊戲" title="井字遊戲"
 					info="可以穿梭時空的井字遊戲"
-					tag="React"
+					tag="React, useState"
 					button="作品展示"
 					href="https://tzuhanchen.github.io/tic-tac-toe"
 					newtab />

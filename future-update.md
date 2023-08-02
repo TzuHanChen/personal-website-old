@@ -1,16 +1,16 @@
 # 未來更新計畫
 
-## 圖示
-
-利用 Material Symbols + FontAwesome 更新現有圖示、製作按鈕
-
-## 紀錄
-
-讀取 Markdown 再產生紀錄
-
 ## 職涯規劃
 
 架構、資料、呈現
+
+## 紀錄
+
+串接 API，讀取 Markdown 再產生紀錄
+
+## 圖示
+
+利用 Material Symbols + FontAwesome 更新現有圖示、製作按鈕
 
 ## 首頁
 
