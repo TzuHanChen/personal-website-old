@@ -25,14 +25,14 @@ function Project() {
 				<Card image="/images/personal-website.png"
 					alt="個人網站" title="個人網站"
 					info="展示專案、文章與經歷的網站"
-					tag="Next.js, TypeScript, SCSS, SWR"
+					tag="Next.js, TypeScript, SCSS, SWR, GA4"
 					button="效能報告"
 					href="https://pagespeed.web.dev/analysis?url=https%3A%2F%2Ftzuhanchen.vercel.app%2F"
 					newtab />
 				<Card image="/images/distraction-loves-me.png"
 					alt="數位分心" title="數位分心"
 					info="數位分心教材與研究團隊的網站"
-					tag="React, Bootstrap, Fetch"
+					tag="React, Bootstrap, Fetch, GA4"
 					button="瀏覽網站"
 					href="https://distractionlovesme.lab.nycu.edu.tw/"
 					newtab />
@@ -47,7 +47,7 @@ function Project() {
 				<Card image="/images/personal-website-old.png"
 					alt="個人網站 (舊)" title="個人網站 (舊)"
 					info="展示專案、文章與經歷的網站"
-					tag="JavaScript, SCSS, HTML"
+					tag="JavaScript, SCSS, HTML, GA4"
 					button="前往舊站"
 					href="https://tzuhanchen.github.io"
 					newtab />
