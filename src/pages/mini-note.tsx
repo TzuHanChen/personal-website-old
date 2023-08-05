@@ -101,12 +101,9 @@ export default function MiniNote() {
 			<main>
 				<GridSection>
 					<div className={styles.jcsb}>
-						<Text type="h1">臨時筆記</Text>
-						<Text>串接 RESTful API 的練習<br />
-							前端：Next.js page<br />
-							後端：Next.js{' '}
-							<Text type="link" href="/api/note" newtab>API Route</Text>
-						</Text>
+						<Text type="h1">簡單筆記</Text>
+						<Text>新增、讀取、更新、刪除，<br />
+							你可在此寫下任何筆記</Text>
 						<Button href="#info">說明</Button>
 					</div>
 
@@ -118,12 +115,14 @@ export default function MiniNote() {
 
 				<TextSection id="info">
 					<Text type="h2">說明</Text>
+					<Text>這個簡單筆記是串接 RESTful API 的練習。</Text>
 					<div className={styles.jcsb}>
-						<Text>前端功能開發進度：<br />
+						<Text>前端：Next.js page<br />
 							Create 開發中，Read 已完成，<br />
 							Update 開發中，Delete 開發中
 						</Text>
-						<Text>後端功能開發進度：<br />
+						<Text>後端：Next.js{' '}
+							<Text type="link" href="/api/note" newtab>API Route</Text><br />
 							GET 已完成，POST 開發中，<br />
 							PATCH 開發中，DELETE 開發中
 						</Text>
