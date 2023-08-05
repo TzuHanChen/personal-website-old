@@ -93,17 +93,17 @@ export default function MiniNote() {
 
 	return (
 		<>
-			{/* <SEO title="陳子涵 | 簡易筆記"
-				description="陳子涵的簡易筆記"
+			<SEO title="陳子涵 | 簡單筆記"
+				description="新增、讀取、更新、刪除，你可在此編輯任何筆記"
 				url="/mini-note"
-				image="/images/personal-website-preview.png" /> */}
+				image="/images/in-progress.png" />
 
 			<main>
 				<GridSection>
 					<div className={styles.jcsb}>
 						<Text type="h1">簡單筆記</Text>
 						<Text>新增、讀取、更新、刪除，<br />
-							你可在此寫下任何筆記</Text>
+							你可在此編輯任何筆記</Text>
 						<Button href="#info">說明</Button>
 					</div>
 
@@ -113,10 +113,10 @@ export default function MiniNote() {
 					</Grid>
 				</GridSection>
 
-				<TextSection id="info">
+				<GridSection id="info">
 					<Text type="h2">說明</Text>
 					<Text>這個簡單筆記是串接 RESTful API 的練習。</Text>
-					<div className={styles.jcsb}>
+					<Grid>
 						<Text>前端：Next.js page<br />
 							Create 開發中，Read 已完成，<br />
 							Update 開發中，Delete 開發中
@@ -126,8 +126,10 @@ export default function MiniNote() {
 							GET 已完成，POST 開發中，<br />
 							PATCH 開發中，DELETE 開發中
 						</Text>
-					</div>
-				</TextSection>
+						<Text>資料：？
+						</Text>
+					</Grid>
+				</GridSection>
 			</main>
 		</>
 	)

@@ -77,7 +77,7 @@ function Practice() {
 			<Grid marginTop>
 				<Card image="/images/in-progress.png"
 					alt="簡單筆記" title="簡單筆記"
-					info="新增、讀取、更新、刪除，你可在此寫下任何筆記"
+					info="新增、讀取、更新、刪除，你可在此編輯任何筆記"
 					tag="RESTful API"
 					button="作品展示"
 					href="/mini-note" />
