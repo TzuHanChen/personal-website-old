@@ -36,7 +36,7 @@ function Project() {
 					button="瀏覽網站"
 					href="https://distractionlovesme.lab.nycu.edu.tw/"
 					newtab />
-				<Card image="/images/teamie.png"
+				<Card image="/images/in-progress.png"
 					alt="Teamie" title="Teamie"
 					info="開發中的專案團隊媒合平台"
 					tag="Next.js, TypeScript, SCSS"
@@ -75,7 +75,7 @@ function Practice() {
 		<GridSection id="practice">
 			<Text type="h2">練習</Text>
 			<Grid marginTop>
-				<Card image="/images/in-progress.png"
+				<Card image="/images/simple-note.png"
 					alt="簡單筆記" title="簡單筆記"
 					info="新增、讀取、更新、刪除，你可在此編輯任何筆記"
 					tag="RESTful API, SWR"
