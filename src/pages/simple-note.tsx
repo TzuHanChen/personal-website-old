@@ -6,7 +6,7 @@ import Button from '@/components/button'
 import GridSection, { Grid } from '@/layouts/grid-section'
 import styles from '@/design-tokens/utilities.module.scss'
 
-import { GetData, PostData, UpdateData } from '@/lib/simple-note-data'
+import { GetData, PostData, UpdateData, DeleteData } from '@/lib/simple-note-data'
 
 function CreateNote({ mutate }: { mutate: any }) {
 	let [text, setText] = useState('');
@@ -59,6 +59,30 @@ function UpdateNote({ id, mutate, setControl }:
 	)
 }
 
+function DeleteNote({ id, mutate, setControl }:
+	{ id: number, mutate: any, setControl: any }) {
+
+	function handleDelete() {
+		try {
+			mutate(DeleteData({ id }));
+			setControl('options')
+		} catch (error) {
+			console.error(error)
+		}
+	}
+
+	return (
+		<>
+			<Text>刪除筆記</Text>
+			<div className={styles.jcsb}>
+				<Text>要刪除這個筆記嗎？</Text>
+				<Button onClick={handleDelete}>確定</Button>
+			</div>
+			<Button onClick={() => setControl('options')}>取消</Button>
+		</>
+	)
+}
+
 function ControlArea({ id, mutate }:
 	{ id: number, mutate: any }) {
 	let [control, setControl] = useState('options');
@@ -67,12 +91,15 @@ function ControlArea({ id, mutate }:
 	if (control == 'options') {
 		controlArea =
 			<div className={styles.jcsb}>
-				{/* <Button onClick="">刪除</Button> */}
-				<Button onClick={() => setControl('edit')}>編輯</Button>
+				<Button onClick={() => setControl('delete')}>刪除</Button>
+				<Button onClick={() => setControl('update')}>編輯</Button>
 			</div>;
 	}
-	if (control == 'edit') {
+	if (control == 'update') {
 		controlArea = <UpdateNote id={id} mutate={mutate} setControl={setControl} />;
+	}
+	if (control == 'delete') {
+		controlArea = <DeleteNote id={id} mutate={mutate} setControl={setControl} />;
 	}
 
 	return controlArea;

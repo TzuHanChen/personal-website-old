@@ -31,13 +31,13 @@ export function UpdateData(note: object) {
 	return data;
 }
 
-// export function DeleteData(id: object) {
-// 	const data = fetch(url, {
-// 		method: 'DELETE',
-// 		headers: {
-// 			'Content-Type': 'application/json; charset=UTF-8',
-// 		},
-// 		body: JSON.stringify(id)
-// 	}).then((res) => res.json());
-// 	return data;
-// }
+export function DeleteData(id: object) {
+	const data = fetch(url, {
+		method: 'DELETE',
+		headers: {
+			'Content-Type': 'application/json; charset=UTF-8',
+		},
+		body: JSON.stringify(id)
+	}).then((res) => res.json());
+	return data;
+}

@@ -44,9 +44,16 @@ export default function note(
 		res.status(200).json(data);
 	}
 
-	// if (req.method === 'DELETE') {
-	// 	res.status(200).json(req.body);
-	// } else {
-	// 	res.status(200).json(req.body);
-	// }
+	if (req.method === 'DELETE') {
+		const id = req.body.id;
+		for (let i = 0; i < data.length; i++) {
+			if (data[i].id == id) {
+				data.splice(i, 1);
+				break;
+			}
+		}
+		res.status(200).json(data);
+	} else {
+		res.status(200).json(req.body);
+	}
 }
