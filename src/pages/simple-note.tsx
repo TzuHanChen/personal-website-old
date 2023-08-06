@@ -6,12 +6,12 @@ import Button from '@/components/button'
 import GridSection, { Grid } from '@/layouts/grid-section'
 import styles from '@/design-tokens/utilities.module.scss'
 
-import { GetData, PostData } from '../../lib/simple-note-data'
+import { GetData, PostData, UpdateData } from '@/lib/simple-note-data'
 
 function CreateNote({ mutate }: { mutate: any }) {
 	let [text, setText] = useState('');
 
-	function handleClick() {
+	function handleCreate() {
 		try {
 			mutate(PostData({ text }));
 		} catch (error) {
@@ -22,23 +22,69 @@ function CreateNote({ mutate }: { mutate: any }) {
 	return (
 		<div className={`${styles.bgcw} ${styles.p12}`}>
 			<Text>新增筆記</Text>
-			<div className={`${styles.jcsb}`}>
+			<div className={styles.jcsb}>
 				<input type="text" value={text} autoFocus
 					onChange={(e) => setText(e.target.value)}
-					className={styles.inputText} />
-				<Button onClick={handleClick}>新增</Button>
+					className={`${styles.inputText} ${styles.mr12}`} />
+				<Button onClick={handleCreate}>新增</Button>
 			</div>
 		</div>
 	)
 }
 
-function Notes({ data, error, isLoading }:
-	{ data: any, error: any, isLoading: boolean }) {
+function UpdateNote({ id, mutate, setControl }:
+	{ id: number, mutate: any, setControl: any }) {
+	let [text, setText] = useState('');
+
+	function handleUpdate() {
+		try {
+			mutate(UpdateData({ id, text }));
+			setControl('options')
+		} catch (error) {
+			console.error(error)
+		}
+	}
+
+	return (
+		<>
+			<Text>編輯筆記</Text>
+			<div className={styles.jcsb}>
+				<input type="text" value={text} autoFocus
+					onChange={(e) => setText(e.target.value)}
+					className={styles.inputText} />
+				<Button onClick={handleUpdate}>確定</Button>
+			</div>
+			<Button onClick={() => setControl('options')}>取消</Button>
+		</>
+	)
+}
+
+function ControlArea({ id, mutate }:
+	{ id: number, mutate: any }) {
+	let [control, setControl] = useState('options');
+	let controlArea = <></>;
+
+	if (control == 'options') {
+		controlArea =
+			<div className={styles.jcsb}>
+				{/* <Button onClick="">刪除</Button> */}
+				<Button onClick={() => setControl('edit')}>編輯</Button>
+			</div>;
+	}
+	if (control == 'edit') {
+		controlArea = <UpdateNote id={id} mutate={mutate} setControl={setControl} />;
+	}
+
+	return controlArea;
+}
+
+function Notes({ data, error, isLoading, mutate }:
+	{ data: any, error: any, isLoading: boolean, mutate: any }) {
 	if (error) {
-		return (<Text>Failed to read notes</Text>)
+		return (<Text>讀取筆記失敗，請稍候再試</Text>)
 	}
 	if (isLoading) {
-		return (<Text>Loading...</Text>)
+		return (<Text>載入中，請稍候...</Text>)
 	}
 
 	return data.map((item: { id: number, text: string; }) => {
@@ -46,10 +92,7 @@ function Notes({ data, error, isLoading }:
 			<div key={item.id}
 				className={`${styles.bgcw} ${styles.p12}`}>
 				<Text>{item.id}　{item.text}</Text>
-				<div className={`${styles.jcsb}`}>
-					{/* <Button onClick="">刪除</Button> */}
-					{/* <Button onClick="">編輯</Button> */}
-				</div>
+				<ControlArea id={item.id} mutate={mutate} />
 			</div>
 		)
 	});
@@ -72,9 +115,9 @@ export default function MiniNote() {
 						<Button href="#info">說明</Button>
 						<CreateNote mutate={mutate} />
 					</div>
-					
+
 					<Grid marginTop>
-						<Notes data={data} error={error} isLoading={isLoading} />
+						<Notes data={data} error={error} isLoading={isLoading} mutate={mutate} />
 					</Grid>
 				</GridSection>
 
@@ -87,12 +130,12 @@ export default function MiniNote() {
 					<div className={styles.jcsb}>
 						<Text>前端：Next.js page<br />
 							Create 已完成，Read 已完成，<br />
-							Update 開發中，Delete 開發中
+							Update 已完成，Delete 開發中
 						</Text>
 						<Text>後端：Next.js{' '}
 							<Text type="link" href="/api/note" newtab>API Route</Text><br />
 							GET 已完成，POST 已完成，<br />
-							PATCH 開發中，DELETE 開發中
+							PATCH 已完成，DELETE 開發中
 						</Text>
 						<Text>資料：並沒有串接到真的資料庫，<br />
 							目前後端只是收到新資料、<br />

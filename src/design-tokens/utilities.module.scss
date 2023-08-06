@@ -18,14 +18,19 @@
 	background-color: white;
 }
 
+.mr12 {
+	margin-right: 12px;
+}
 .p12 {
 	padding: 12px;
 }
 
 .inputText {
-	margin-right: 12px;
+	margin-top: 12px;
+	margin-bottom: 12px;
 	max-width: 192px;
-	height: 42px;
+	// max-width: 100%;
+	min-height: 42px;
 	padding: 3px 12px;
 	font-size: 18px;
 	border-radius: 12px;

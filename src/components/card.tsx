@@ -7,9 +7,11 @@ import styles from './card.module.scss';
 export default function Card({ ...props }) {
 	return (
 		<div className={styles.card}>
-			<Image src={props.image} alt={props.alt}
-				width={300} height={213}
-				className={styles.image} />
+			{(props.image) ?
+				<Image src={props.image} alt={props.alt}
+					width={300} height={213}
+					className={styles.image} /> : null
+			}
 
 			<div className={styles["text-area"]}>
 				<Text type="h3">{props.title}</Text>
@@ -28,14 +30,14 @@ export default function Card({ ...props }) {
 
 export function CardShowcase() {
 	const oneCard = <Card image="/images/personal-website.png"
-	alt="personal website" title="個人網站"
-	info="展示專案、文章與經歷的網站" button="作品說明"
-	href="/records/ssg-ssr" />;
-	
+		alt="personal website" title="個人網站"
+		info="展示專案、文章與經歷的網站" button="作品說明"
+		href="/records/ssg-ssr" />;
+
 	return (
 		<>
-			{ oneCard }{ oneCard }{ oneCard }
-			{ oneCard }{ oneCard }{ oneCard }
+			{oneCard}{oneCard}{oneCard}
+			{oneCard}{oneCard}{oneCard}
 		</>
 	)
 }
