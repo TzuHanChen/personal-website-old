@@ -19,7 +19,7 @@ function Intro() {
 				<Text type="teal">陳子涵</Text>
 			</Text>
 			<Text type="h3" align="center">之前是前端網頁實習生，現在的目標是成為前端工程師</Text>
-			<Text>　　我目前使用 Next.js, React, Bootstrap, SCSS 等前端工具，完成實習、接案、新創的多項專案與任務。之前有接觸過介面設計、使用者體驗、後端開發，現在仍有持續利用這些經歷，與負責這些職位的夥伴討論、溝通與合作。我是一個冷靜、理性的人，遵循流程的同時保有調整的彈性。如果你想找我聊聊新的合作機會，請聯繫我！</Text>
+			<Text>　　我目前使用 Next.js, React, TypeSsript, SWR, SCSS 等前端工具，完成實習、接案、新創的多項專案與任務。之前有接觸過介面設計、使用者體驗、後端開發，現在仍有持續利用這些經歷，與負責這些職位的夥伴討論、溝通與合作。我是一個冷靜、理性的人，遵循流程的同時保有調整的彈性。如果你想找我聊聊新的合作機會，請聯繫我！</Text>
 		</TextSection>
 	)
 }
@@ -91,7 +91,7 @@ function Skills() {
 					<Text type="h2">技能</Text>
 
 					<Text type="h3">網頁前端</Text>
-					<Text>Next.js, React, SCSS</Text>
+					<Text>Next.js, React, TypeSsript, SWR, SCSS</Text>
 					<Text type="h3">版本控制</Text>
 					<Text>Git, GitHub, GitLab</Text>
 					<Text type="h3">介面設計、使用者體驗</Text>
