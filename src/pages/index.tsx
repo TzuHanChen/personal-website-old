@@ -78,9 +78,9 @@ function Practice() {
 				<Card image="/images/in-progress.png"
 					alt="簡單筆記" title="簡單筆記"
 					info="新增、讀取、更新、刪除，你可在此編輯任何筆記"
-					tag="RESTful API"
+					tag="RESTful API, SWR"
 					button="作品展示"
-					href="/mini-note" />
+					href="/simple-note" />
 				<Card image="/images/nextjs-blog.png"
 					alt="部落格" title="部落格"
 					info="練習各種網頁渲染方式的網站"

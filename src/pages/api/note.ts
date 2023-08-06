@@ -23,16 +23,30 @@ export default function note(
 	req: NextApiRequest, res: NextApiResponse) {
 	if (req.method === 'GET') {
 		res.status(200).json(data);
-	} else if (req.method === 'POST') {
+	}
+
+	if (req.method === 'POST') {
 		const id = data[data.length - 1].id + 1;
 		const text = req.body.text;
 		data = [...data, { id, text }];
 		res.status(200).json(data);
-	// } else if (req.method === 'PATCH') {
-	// 	res.status(200).json(req.body);
-	// } else if (req.method === 'DELETE') {
-	// 	res.status(200).json(req.body);
-	} else {
+	}
+
+	if (req.method === 'PATCH') {
+		const id = req.body.id;
+		const text = req.body.text;
+		for (const item of data) {
+			if (item.id == id) {
+				item.text = text;
+				break;
+			}
+		}
 		res.status(200).json(data);
 	}
+
+	// if (req.method === 'DELETE') {
+	// 	res.status(200).json(req.body);
+	// } else {
+	// 	res.status(200).json(req.body);
+	// }
 }
