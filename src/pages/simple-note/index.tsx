@@ -6,27 +6,7 @@ import Button from '@/components/button'
 import GridSection, { Grid } from '@/layouts/grid-section'
 import styles from '@/design-tokens/utilities.module.scss'
 
-import { GetData, PostData } from './data'
-
-// function asyncSyntax() {
-// 	async () => {
-// 		try {
-// 			const newNote = await handler({text});
-// 			// await handler({text});
-// 			mutate([...data, newNote]
-// 				,{
-// 				optimisticData: [...data, newNote],
-// 				populateCache: true,
-// 				revalidate: true,
-// 				rollbackOnError: true,
-// 				throwOnError: true
-// 			}
-// 			);
-// 		} catch (error) {
-// 			console.error(error)
-// 		}
-// 	}
-// }
+import { GetData, PostData } from '../../lib/simple-note-data'
 
 function CreateNote({ mutate }: { mutate: any }) {
 	let [text, setText] = useState('');

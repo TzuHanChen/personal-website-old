@@ -1,6 +1,6 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
 
-import { getAllRecordsIds, getRecordData } from '@/lib/records';
+import { getAllRecordsIds, getRecordData } from '@/lib/records-data';
 import SEO from '@/lib/seo';
 
 export const getStaticPaths: GetStaticPaths = async () => {
