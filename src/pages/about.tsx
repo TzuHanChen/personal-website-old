@@ -32,7 +32,7 @@ function Experience() {
 			<Text type="h3">
 				<Text type="teal">Teamie - 前端工程師</Text>　2022/09 ~ 現今
 			</Text>
-			<Text>Teamie 是一個新創團隊，我們的目標是打造一個專案夥伴媒合平台。</Text>
+			<Text>Teamie 是一個學生新創團隊，我們的目標是打造一個專案夥伴媒合平台。</Text>
 			<Text type="ul">
 				<li>使用 Next.js + Bootstrap + SCSS，編輯樣式、製作元件、網頁切版。</li>
 				<li>與前端夥伴合作開發：個人、專案、其它 (動態、動態、靜態頁面)。</li>
