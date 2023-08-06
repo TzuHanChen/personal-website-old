@@ -165,7 +165,7 @@ export default function MiniNote() {
 							Update 已完成，Delete 已完成
 						</Text>
 						<Text>後端：Next.js{' '}
-							<Text type="link" href="/api/note" newtab>API Route</Text><br />
+							<Text type="link" href="/api/simple-note" newtab>API Route</Text><br />
 							GET 已完成，POST 已完成，<br />
 							PATCH 已完成，DELETE 已完成
 						</Text>

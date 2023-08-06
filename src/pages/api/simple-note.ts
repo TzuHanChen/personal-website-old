@@ -19,7 +19,7 @@ let data = [
 	}
 ];
 
-export default function note(
+export default function simpleNote(
 	req: NextApiRequest, res: NextApiResponse) {
 	if (req.method === 'GET') {
 		res.status(200).json(data);
@@ -60,6 +60,6 @@ export default function note(
 		}
 		res.status(200).json(data);
 	} else {
-		res.status(200).json(req.body);
+		res.status(200).json(data);
 	}
 }
