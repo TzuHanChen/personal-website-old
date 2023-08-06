@@ -14,6 +14,7 @@ function CreateNote({ mutate }: { mutate: any }) {
 	function handleCreate() {
 		try {
 			mutate(PostData({ text }));
+			setText('')
 		} catch (error) {
 			console.error(error)
 		}
@@ -114,15 +115,19 @@ function Notes({ data, error, isLoading, mutate }:
 		return (<Text>載入中，請稍候...</Text>)
 	}
 
-	return data.map((item: { id: number, text: string; }) => {
-		return (
-			<div key={item.id}
-				className={`${styles.bgcw} ${styles.p12}`}>
-				<Text>{item.id}　{item.text}</Text>
-				<ControlArea id={item.id} mutate={mutate} />
-			</div>
-		)
-	});
+	if (data.length > 0) {
+		return data.map((item: { id: number, text: string; }) => {
+			return (
+				<div key={item.id}
+					className={`${styles.bgcw} ${styles.p12}`}>
+					<Text>{item.id}　{item.text}</Text>
+					<ControlArea id={item.id} mutate={mutate} />
+				</div>
+			)
+		});
+	} else {
+		return <Text>目前沒有任何筆記</Text>
+	}
 }
 
 export default function MiniNote() {
@@ -157,12 +162,12 @@ export default function MiniNote() {
 					<div className={styles.jcsb}>
 						<Text>前端：Next.js page<br />
 							Create 已完成，Read 已完成，<br />
-							Update 已完成，Delete 開發中
+							Update 已完成，Delete 已完成
 						</Text>
 						<Text>後端：Next.js{' '}
 							<Text type="link" href="/api/note" newtab>API Route</Text><br />
 							GET 已完成，POST 已完成，<br />
-							PATCH 已完成，DELETE 開發中
+							PATCH 已完成，DELETE 已完成
 						</Text>
 						<Text>資料：並沒有串接到真的資料庫，<br />
 							目前後端只是收到新資料、<br />

@@ -26,9 +26,15 @@ export default function note(
 	}
 
 	if (req.method === 'POST') {
-		const id = data[data.length - 1].id + 1;
+		let id = 0;
 		const text = req.body.text;
-		data = [...data, { id, text }];
+		if (data.length == 0) {
+			id++;
+			data = [{ id, text }];
+		} else {
+			id = data[data.length - 1].id + 1;
+			data = [...data, { id, text }];
+		}
 		res.status(200).json(data);
 	}
 
