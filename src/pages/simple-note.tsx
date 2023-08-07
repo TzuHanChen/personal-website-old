@@ -3,6 +3,7 @@ import { useState } from 'react'
 import SEO from '@/lib/seo'
 import Text from '@/components/text'
 import Button from '@/components/button'
+import TextSection from '@/layouts/text-section'
 import GridSection, { Grid } from '@/layouts/grid-section'
 import styles from '@/design-tokens/utilities.module.scss'
 
@@ -21,14 +22,12 @@ function CreateNote({ mutate }: { mutate: any }) {
 	}
 
 	return (
-		<div className={`${styles.bgcw} ${styles.p12}`}>
+		<div className={`${styles.bgcw} ${styles.p12} ${styles.bdrd12}`}>
 			<Text>新增筆記</Text>
-			<div className={styles.jcsb}>
-				<input type="text" value={text} autoFocus
-					onChange={(e) => setText(e.target.value)}
-					className={`${styles.inputText} ${styles.mr12}`} />
-				<Button onClick={handleCreate}>新增</Button>
-			</div>
+			<input type="text" value={text} autoFocus
+				onChange={(e) => setText(e.target.value)}
+				className={`${styles.inputText} ${styles.mr12}`} />
+			<Button onClick={handleCreate}>新增</Button>
 		</div>
 	)
 }
@@ -49,7 +48,7 @@ function UpdateNote({ id, mutate, setControl }:
 	return (
 		<>
 			<Text>編輯筆記</Text>
-			<div className={styles.jcsb}>
+			<div className={`${styles.jcsb} ${styles.mb12}`}>
 				<input type="text" value={text} autoFocus
 					onChange={(e) => setText(e.target.value)}
 					className={styles.inputText} />
@@ -119,7 +118,7 @@ function Notes({ data, error, isLoading, mutate }:
 		return data.map((item: { id: number, text: string; }) => {
 			return (
 				<div key={item.id}
-					className={`${styles.bgcw} ${styles.p12}`}>
+					className={`${styles.bgcw} ${styles.p12} ${styles.bdrd12}`}>
 					<Text>{item.id}　{item.text}</Text>
 					<ControlArea id={item.id} mutate={mutate} />
 				</div>
@@ -130,6 +129,27 @@ function Notes({ data, error, isLoading, mutate }:
 	}
 }
 
+function Info() {
+	return (
+		<TextSection id="info">
+			<Text type="h2">說明</Text>
+			<Text>新增、讀取、更新、刪除，你可在此編輯任何筆記。</Text>
+			<Text>實作與串接 RESTful API，再用 SWR 取得資料、即時更新畫面。</Text>
+
+			<Text type="h3">前端</Text>
+			<Text>畫面：Next.js page</Text>
+			<Text>功能：Create, Read, Update, Delete</Text>
+
+			<Text type="h3">後端</Text>
+			<Text>路徑：Next.js{' '}
+				<Text type="link" href="/api/simple-note" newtab>API Route</Text>
+			</Text>
+			<Text>功能：GET, POST, PATCH, DELETE</Text>
+			<Text>資料：目前只是接收新資料、編輯舊資料之後回傳，並沒有串接到任何資料庫</Text>
+		</TextSection>
+	)
+}
+
 export default function MiniNote() {
 	const { data, error, isLoading, mutate } = GetData();
 
@@ -138,7 +158,7 @@ export default function MiniNote() {
 			<SEO title="陳子涵 | 簡單筆記"
 				description="新增、讀取、更新、刪除，你可在此編輯任何筆記"
 				url="/mini-note"
-				image="/images/in-progress.png" />
+				image="/images/simple-note.png" />
 
 			<main>
 				<GridSection>
@@ -153,28 +173,7 @@ export default function MiniNote() {
 					</Grid>
 				</GridSection>
 
-				<GridSection id="info">
-					<Text type="h2">說明</Text>
-					<div className={styles.jcsb}>
-						<Text>新增、讀取、更新、刪除，你可在此編輯任何筆記。</Text>
-						<Text>這個簡單筆記是串接 RESTful API 的練習。</Text>
-					</div>
-					<div className={styles.jcsb}>
-						<Text>前端：Next.js page<br />
-							Create 已完成，Read 已完成，<br />
-							Update 已完成，Delete 已完成
-						</Text>
-						<Text>後端：Next.js{' '}
-							<Text type="link" href="/api/simple-note" newtab>API Route</Text><br />
-							GET 已完成，POST 已完成，<br />
-							PATCH 已完成，DELETE 已完成
-						</Text>
-						<Text>資料：並沒有串接到真的資料庫，<br />
-							目前後端只是收到新資料、<br />
-							編輯舊資料之後回傳前端
-						</Text>
-					</div>
-				</GridSection>
+				<Info />
 			</main>
 		</>
 	)

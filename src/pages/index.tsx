@@ -61,7 +61,7 @@ function Project() {
 				<Card image="/images/medical-forum.png"
 					alt="醫療論壇" title="醫療論壇"
 					info="供使用者發文討論醫療相關議題的網站"
-					tag="Miro, PHP, MySQL"
+					tag="PHP, MySQL, Miro"
 					button="作品說明"
 					href="https://tzuhanchen.github.io/medical-forum.html"
 					newtab />
@@ -115,12 +115,15 @@ function Article() {
 				<Card image="/images/arete-internship.png"
 					alt="亞瑞特實習" title="亞瑞特實習"
 					info="實習日誌與任務成果"
+					tag="EDM, JavaScript, SCSS, HTML, PHP"
 					button="閱讀紀錄"
 					href="https://tzuhanchen.github.io/arete-internship"
 					newtab/>
 				<Card image="/images/tech-notes.png"
 					alt="技術筆記" title="技術筆記"
-					info="依照學習地圖分類列出的筆記" button="閱讀筆記"
+					info="依照學習地圖分類列出的筆記"
+					tag="HTML, CSS, JavaScript, Git, SCSS, Node.js"
+					button="閱讀筆記"
 					href="https://tzuhanchen.github.io/tech-notes"
 					newtab/>
 			</Grid>

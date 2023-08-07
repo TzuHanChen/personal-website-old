@@ -6,6 +6,9 @@
 .circle {
 	border-radius: 50%;
 }
+.bdrd12 {
+	border-radius: 12px;
+}
 
 .jcsb {
 	display: flex;
@@ -21,15 +24,15 @@
 .mr12 {
 	margin-right: 12px;
 }
+.mb12 {
+	margin-bottom: 12px;
+}
 .p12 {
 	padding: 12px;
 }
 
 .inputText {
-	margin-top: 12px;
-	margin-bottom: 12px;
 	max-width: 192px;
-	// max-width: 100%;
 	min-height: 42px;
 	padding: 3px 12px;
 	font-size: 18px;
