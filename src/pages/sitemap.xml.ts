@@ -13,12 +13,6 @@ function generateSiteMap() {
 			<url>
 				<loc>${DEPLOYMENT_URL}/about</loc>
 			</url>
-			<url>
-				<loc>${DEPLOYMENT_URL}/sitemap.xml</loc>
-			</url>
-			<url>
-				<loc>${DEPLOYMENT_URL}/robots.txt</loc>
-			</url>
 		</urlset>
 	</xml>`;
 }
