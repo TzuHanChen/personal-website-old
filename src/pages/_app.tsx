@@ -38,14 +38,16 @@ function Font() {
 function GA4() {
 	return (
 		<>
-			<Script async src="https://www.googletagmanager.com/gtag/js?id=G-L1VLJWN6YZ"></Script>
-			<Script id="google-analytics">{`
+			<Script async src="https://www.googletagmanager.com/gtag/js?id=G-L1VLJWN6YZ" strategy="afterInteractive"></Script>
+			<Script id="google-analytics" strategy="afterInteractive">
+				{`
 				window.dataLayer = window.dataLayer || [];
 				function gtag(){dataLayer.push(arguments);}
 				gtag('js', new Date());
 
 				gtag('config', 'G-4FQPG607TH');
-			`}</Script>
+				`}
+			</Script>
 		</>
 	)
 }

@@ -4,6 +4,24 @@
 
 架構、資料、呈現
 
+## 首頁
+
+新增
+
+### 數位人才
+
+### 學習資源
+
+[Sololearn](https://www.sololearn.com/profile/1183438)
+
+[Exercism](https://exercism.org/profiles/TzuHanChen)
+
+[Codewars](https://www.codewars.com/users/TzuHan_Chen)
+
+### 蔬果清單
+
+react.dev Thinking in React
+
 ## 紀錄
 
 串接 API，讀取 Markdown 再產生紀錄
@@ -11,18 +29,6 @@
 ## 圖示
 
 利用 Material Symbols + FontAwesome 更新現有圖示、製作按鈕
-
-## 首頁
-
-新增學習資源、活動紀錄等等
-
-[Codepen](https://codepen.io/TzuHanChen)
-
-[Sololearn](https://www.sololearn.com/profile/1183438)
-
-[Codewars](https://www.codewars.com/users/TzuHan_Chen)
-
-[Exercism](https://exercism.org/profiles/TzuHanChen)
 
 ## 設計
 
