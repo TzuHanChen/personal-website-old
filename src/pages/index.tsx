@@ -24,8 +24,8 @@ function Project() {
 			<Grid marginTop>
 				<Card image="/images/personal-website.png"
 					alt="個人網站" title="個人網站"
-					info="展示專案、文章與經歷的網站"
-					tag="Next.js, TypeScript, SCSS, SWR, GA4"
+					info="展示專案、文章與經歷的網站，也是練習各種前端技術的空間"
+					tag="Next.js, TypeScript, SCSS, SWR, GA4, SEO"
 					button="效能報告"
 					href="https://pagespeed.web.dev/analysis?url=https%3A%2F%2Ftzuhanchen.vercel.app%2F"
 					newtab />
