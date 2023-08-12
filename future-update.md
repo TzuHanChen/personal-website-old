@@ -1,16 +1,18 @@
 # 未來更新計畫
 
-## 圖示
-
-利用 Material Symbols + FontAwesome 更新現有圖示、製作按鈕
+等待 [Material Design Web Components](https://github.com/material-components/material-web) 釋出 v1.0.0 stable 再進行下列改版
 
 ## 設計
 
 全面更新成 Material Design 3
 
+## 圖示
+
+利用 Material Symbols 更新現有圖示、按鈕
+
 ## 全站配色
 
-整個網站 day mode + night mode
+整個網站 dark + auto + light mode
 
 參考資料：
 
