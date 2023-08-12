@@ -17,7 +17,7 @@ export default function Nav() {
 				<Button href="/#project">專案</Button>
 				<Button href="/#practice">練習</Button>
 				<Button href="/#article">文章</Button>
-				<Button href="/#about">關於我</Button>
+				<Button href="/about">關於我</Button>
 			</div>
 		</nav>
 	)
