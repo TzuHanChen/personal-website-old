@@ -56,14 +56,14 @@ function Project() {
 					info="協助使用者充分運用食材的手機應用程式原型"
 					tag="Miro, Figma"
 					button="作品說明"
-					href="https://tzuhanchen.github.io/max-value.html"
+					href="https://tzuhanchen.github.io/projects/max-value.html"
 					newtab />
 				<Card image="/images/medical-forum.png"
 					alt="醫療論壇" title="醫療論壇"
 					info="供使用者發文討論醫療相關議題的網站"
 					tag="PHP, MySQL, Miro"
 					button="作品說明"
-					href="https://tzuhanchen.github.io/medical-forum.html"
+					href="https://tzuhanchen.github.io/projects/medical-forum.html"
 					newtab />
 			</Grid>
 		</GridSection>
@@ -100,7 +100,7 @@ function Practice() {
 					info="利用三種方法隨機讀取三種資料"
 					tag="XHR, Fetch, Axios"
 					button="作品展示"
-					href="https://tzuhanchen.github.io/api-connection"
+					href="https://tzuhanchen.github.io/projects/api-connection"
 					newtab />
 			</Grid>
 		</GridSection>

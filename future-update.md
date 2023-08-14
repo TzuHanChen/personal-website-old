@@ -1,5 +1,9 @@
 # 未來更新計畫
 
+技能：前端單獨一個區塊，後端、介面、體驗三個區塊並排
+
+---
+
 等待 [Material Design Web Components](https://github.com/material-components/material-web) 釋出 v1.0.0 stable 再進行下列改版
 
 ## 設計
@@ -8,7 +12,7 @@
 
 ## 圖示
 
-利用 Material Symbols 更新現有圖示、按鈕
+加入 Material Symbols 圖示
 
 ## 全站配色
 
