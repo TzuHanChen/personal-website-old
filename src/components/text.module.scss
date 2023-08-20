@@ -67,7 +67,10 @@
 .teal {
 	color: $teal;
 }
-.h1, .h2, .h3, .p, .ol li, .ul li, .link, .teal{
+.verdigris {
+	color: $verdigris;
+}
+.h1, .h2, .h3, .p, .ol li, .ul li, .link, .teal, .verdigris{
 	&::selection {
 		background-color: $teal;
 		color: $white;

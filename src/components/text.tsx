@@ -31,6 +31,9 @@ export default function Text({ ...props }) {
 		case "teal":
 			result = <span className={styles.teal}>{children}</span>;
 			break;
+		case "verdigris":
+			result = <span className={styles.verdigris}>{children}</span>;
+			break;
 		case "p":
 		default:
 			result = <p className={allClass}>{children}</p>;
@@ -60,9 +63,14 @@ export function TextShowcase() {
 			<Text type="p">
 				<Text type="teal">teal</Text>
 			</Text>
+			
+			<Text type="p">
+				<Text type="verdigris">verdigris</Text>
+			</Text>
 
 			<Text type="p">p</Text>
 			<Text>p</Text>
+			
 			<Text align="center">p</Text>
 			<Text align="right">p</Text>
 		</>
