@@ -13,6 +13,9 @@ function generateSiteMap() {
 			<url>
 				<loc>${DEPLOYMENT_URL}/about</loc>
 			</url>
+			<url>
+				<loc>${DEPLOYMENT_URL}/simple-note</loc>
+			</url>
 		</urlset>
 	</xml>`;
 }
