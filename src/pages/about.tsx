@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import useSWR from 'swr';
 
-import SEO from '@/lib/seo'
+import SEO from '@/components/seo'
 import Text from '@/components/text'
 import Button from '@/components/button'
 import TextSection from '@/layouts/text-section'

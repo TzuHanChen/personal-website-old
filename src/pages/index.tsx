@@ -1,6 +1,6 @@
 import { InferGetStaticPropsType, GetStaticProps } from 'next';
 
-import SEO from '@/lib/seo'
+import SEO from '@/components/seo'
 import Text from '@/components/text'
 import Button from '@/components/button'
 import Card, { CardImage, CardText, CardButton } from '@/components/card'
