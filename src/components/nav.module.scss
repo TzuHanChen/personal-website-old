@@ -39,14 +39,8 @@
 	align-items: center;
 	a {
 		list-style-type: none;
-		&:not(&:last-child) {
+		&:first-child {
 			margin-right: 9px;
-		}
-		&:nth-child(2), &:nth-child(3) {
-			display: none;
-			@media (min-width: $breakpoint1) {
-				display: block;
-			}
 		}
 	}
 }

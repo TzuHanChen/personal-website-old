@@ -2,25 +2,19 @@
 
 ## 職涯紀錄
 
-撰寫職涯紀錄
-
-Neon PostgreSQL
-
-Hasura GraphQL
+Neon PostgreSQL + Hasura GraphQL
 
 ## 簡單筆記
 
-Neon PostgreSQL
-
-Hasura RESTful API
-
-## 關於我
-
-技能：前端單獨一個區塊，後端、介面、體驗三個區塊並排
+Neon PostgreSQL + Hasura RESTful API
 
 ## 求職紀錄
 
 Chart.js
+
+## 關於我
+
+技能：前端單獨一個區塊，後端、介面、體驗三個區塊並排
 
 ---
 

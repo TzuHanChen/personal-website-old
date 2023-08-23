@@ -164,6 +164,7 @@ export default function MiniNote() {
 				<GridSection>
 					<div className={styles.jcsb}>
 						<Text type="h1">簡單筆記</Text>
+						{/* <Text type="h1">留言板 Bulletin board</Text> */}
 						<Button href="#info">說明</Button>
 						<CreateNote mutate={mutate} />
 					</div>

@@ -1,7 +1,9 @@
+import { InferGetStaticPropsType, GetStaticProps } from 'next';
+
 import SEO from '@/lib/seo'
 import Text from '@/components/text'
 import Button from '@/components/button'
-import Card from '@/components/card'
+import Card, { CardImage, CardText, CardButton } from '@/components/card'
 import HeroSection from '@/layouts/hero-section'
 import GridSection, { Grid } from '@/layouts/grid-section'
 import TextSection from '@/layouts/text-section'
@@ -17,54 +19,158 @@ function Hero() {
 	)
 }
 
+type AllRecordsBasic = {
+	id: number, image: string, name: string,
+	shortIntro: string, highlight: string, type: string,
+	buttonText: string, buttonLink: string
+}[];
+
+export const getStaticProps: GetStaticProps<{
+	allRecordsBasic: AllRecordsBasic
+}> = async () => {
+	const endpoint = 'https://tzuhanchen-website.hasura.app/v1/graphql';
+	const res = await fetch(endpoint, {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json; charset=UTF-8',
+			"x-hasura-admin-secret": "g9hbGctVU0h9PAsNkwduoWTbaMn4ztJVvb8zPhqxkN5CILiw9yuUuDRoaJuNJZQa"
+		},
+		body: JSON.stringify({
+			"query": `query getAllRecordsBasic {
+				records_basic(order_by: {id: desc}, where: {public: {_eq: true}}) {
+					id
+					image
+					name
+					shortIntro
+					highlight
+					type
+					buttonText
+					buttonLink
+				}
+			}`
+		})
+	});
+
+	const data = await res.json();
+
+	const allRecordsBasic = data.data.records_basic;
+	return { props: { allRecordsBasic } };
+}
+
+function Records({
+	allRecordsBasic
+}: { allRecordsBasic: AllRecordsBasic }) {
+	const result = allRecordsBasic.map(({ id, image, name,
+		shortIntro, highlight, type, buttonText, buttonLink }) => (
+		<Card key={id}>
+			<CardImage image={image} alt={name} />
+			<CardText>
+				<Text type="h3">{name}</Text>
+				<Text type="p">{shortIntro}</Text>
+				<Text><Text type="teal">{highlight}</Text></Text>
+			</CardText>
+			<CardButton>
+				<Text><Text type="verdigris"># {type}</Text></Text>
+				<Button href={buttonLink} newtab>{buttonText}</Button>
+			</CardButton>
+		</Card>
+	))
+	return (
+		<GridSection>
+			<Text type="h2">職涯紀錄</Text>
+			<Grid marginTop>{result}</Grid>
+		</GridSection>
+	)
+}
+
 function Project() {
 	return (
 		<GridSection id="project">
-			<Text type="h2">專案</Text>
+			<Text type="h2">職涯紀錄</Text>
 			<Grid marginTop>
-				<Card image="/images/personal-website.png"
-					alt="個人網站" title="個人網站"
-					info="展示專案、文章與經歷的網站，也是練習各種前端技術的空間"
-					tag="Next.js, TypeScript, SCSS, SWR, GA4, SEO"
-					button="效能報告"
-					href="https://pagespeed.web.dev/analysis?url=https%3A%2F%2Ftzuhanchen.vercel.app%2F"
-					newtab />
-				<Card image="/images/distraction-loves-me.png"
-					alt="數位分心" title="數位分心"
-					info="數位分心教材與研究團隊的網站"
-					tag="React, Bootstrap, Fetch, GA4"
-					button="瀏覽網站"
-					href="https://distractionlovesme.lab.nycu.edu.tw/"
-					newtab />
-				<Card image="/images/in-progress.png"
-					alt="Teamie" title="Teamie"
-					info="開發中的專案團隊媒合平台"
-					tag="Next.js, TypeScript, SCSS"
-					button="敬請期待"
-					// href="https://teamie.tw"
-					newtab />
-				
-				<Card image="/images/personal-website-old.png"
-					alt="個人網站 (舊)" title="個人網站 (舊)"
-					info="展示專案、文章與經歷的網站"
-					tag="JavaScript, SCSS, HTML, GA4"
-					button="前往舊站"
-					href="https://tzuhanchen.github.io"
-					newtab />
-				<Card image="/images/max-value.png"
-					alt="珍食力" title="珍食力"
-					info="協助使用者充分運用食材的手機應用程式原型"
-					tag="Miro, Figma"
-					button="作品說明"
-					href="https://tzuhanchen.github.io/projects/max-value.html"
-					newtab />
-				<Card image="/images/medical-forum.png"
-					alt="醫療論壇" title="醫療論壇"
-					info="供使用者發文討論醫療相關議題的網站"
-					tag="PHP, MySQL, Miro"
-					button="作品說明"
-					href="https://tzuhanchen.github.io/projects/medical-forum.html"
-					newtab />
+				<Card>
+					<CardImage image="personal-website.png"
+						alt="個人網站" />
+					<CardText>
+						<Text type="h3">個人網站</Text>
+						<Text type="p">展示專案、文章與經歷的網站</Text>
+						<Text><Text type="teal">Next.js, TypeScript, SCSS, SWR, GA4, SEO</Text></Text>
+					</CardText>
+					<CardButton>
+						<Text><Text type="verdigris"># 專案</Text></Text>
+						<Button href="https://pagespeed.web.dev/analysis?url=https%3A%2F%2Ftzuhanchen.vercel.app%2F" newtab>效能報告</Button>
+					</CardButton>
+				</Card>
+
+				<Card>
+					<CardImage image="distraction-loves-me.png"
+						alt="數位分心" />
+					<CardText>
+						<Text type="h3">數位分心</Text>
+						<Text type="p">數位分心教材與研究團隊的網站</Text>
+						<Text><Text type="teal">React, Bootstrap, Fetch, GA4</Text></Text>
+					</CardText>
+					<CardButton>
+						<Text><Text type="verdigris"># 專案</Text></Text>
+						<Button href="https://distractionlovesme.lab.nycu.edu.tw/" newtab>瀏覽網站</Button>
+					</CardButton>
+				</Card>
+
+				<Card>
+					<CardImage image="in-progress.png"
+						alt="Teamie" />
+					<CardText>
+						<Text type="h3">Teamie</Text>
+						<Text type="p">開發中的專案團隊媒合平台</Text>
+						<Text><Text type="teal">Next.js, TypeScript, SCSS</Text></Text>
+					</CardText>
+					<CardButton>
+						<Text><Text type="verdigris"># 專案</Text></Text>
+						<Button>敬請期待</Button>
+					</CardButton>
+				</Card>
+
+				<Card>
+					<CardImage image="personal-website-old.png"
+						alt="個人網站 (舊)" />
+					<CardText>
+						<Text type="h3">個人網站 (舊)</Text>
+						<Text type="p">展示專案、文章與經歷的網站</Text>
+						<Text><Text type="teal">JavaScript, SCSS, HTML, GA4</Text></Text>
+					</CardText>
+					<CardButton>
+						<Text><Text type="verdigris"># 專案</Text></Text>
+						<Button href="https://tzuhanchen.github.io" newtab>前往舊站</Button>
+					</CardButton>
+				</Card>
+
+				<Card>
+					<CardImage image="max-value.png"
+						alt="珍食力" />
+					<CardText>
+						<Text type="h3">珍食力</Text>
+						<Text type="p">協助使用者充分運用食材的手機應用程式原型</Text>
+						<Text><Text type="teal">Miro, Figma</Text></Text>
+					</CardText>
+					<CardButton>
+						<Text><Text type="verdigris"># 專案</Text></Text>
+						<Button href="https://tzuhanchen.github.io/projects/max-value.html" newtab>作品說明</Button>
+					</CardButton>
+				</Card>
+
+				<Card>
+					<CardImage image="medical-forum.png"
+						alt="醫療論壇" />
+					<CardText>
+						<Text type="h3">醫療論壇</Text>
+						<Text type="p">供使用者發文討論醫療相關議題的網站</Text>
+						<Text><Text type="teal">PHP, MySQL, Miro</Text></Text>
+					</CardText>
+					<CardButton>
+						<Text><Text type="verdigris"># 專案</Text></Text>
+						<Button href="https://tzuhanchen.github.io/projects/medical-forum.html" newtab>作品說明</Button>
+					</CardButton>
+				</Card>
 			</Grid>
 		</GridSection>
 	)
@@ -118,14 +224,14 @@ function Article() {
 					tag="EDM, JavaScript, SCSS, HTML, PHP"
 					button="閱讀紀錄"
 					href="https://tzuhanchen.github.io/arete-internship"
-					newtab/>
+					newtab />
 				<Card image="/images/tech-notes.png"
 					alt="技術筆記" title="技術筆記"
 					info="依照學習地圖分類列出的筆記"
 					tag="HTML, CSS, JavaScript, Git, SCSS, Node.js"
 					button="閱讀筆記"
 					href="https://tzuhanchen.github.io/tech-notes"
-					newtab/>
+					newtab />
 			</Grid>
 		</GridSection>
 	)
@@ -143,7 +249,9 @@ function About() {
 	)
 }
 
-export default function Index() {
+export default function Index({
+	allRecordsBasic
+}: InferGetStaticPropsType<typeof getStaticProps>) {
 	return (
 		<>
 			<SEO title="陳子涵 TzuHan_Chen"
@@ -153,9 +261,10 @@ export default function Index() {
 
 			<main>
 				<Hero />
-				<Project />
-				<Practice />
-				<Article />
+				<Records allRecordsBasic={allRecordsBasic} />
+				{/* <Project /> */}
+				{/* <Practice /> */}
+				{/* <Article /> */}
 				<About />
 			</main>
 		</>
