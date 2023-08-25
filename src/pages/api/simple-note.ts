@@ -19,6 +19,17 @@ let data = [
 	}
 ];
 
+const endpoints = {
+	'readNotes': 'https://tzuhanchen-website.hasura.app/api/rest/readnotes',
+	'createNote': 'https://tzuhanchen-website.hasura.app/api/rest/createnote',
+	'updateNote': '',
+	'deleteNote': ''
+};
+const headers = {
+	'Content-Type': 'application/json; charset=UTF-8',
+	'x-hasura-admin-secret': 'g9hbGctVU0h9PAsNkwduoWTbaMn4ztJVvb8zPhqxkN5CILiw9yuUuDRoaJuNJZQa'
+};
+
 export default function simpleNote(
 	req: NextApiRequest, res: NextApiResponse) {
 	if (req.method === 'GET') {
