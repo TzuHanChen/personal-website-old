@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import useSWR from 'swr'
 
 import SEO from '@/components/seo'
 import Text from '@/components/text'
@@ -7,7 +8,45 @@ import TextSection from '@/layouts/text-section'
 import GridSection, { Grid } from '@/layouts/grid-section'
 import styles from '@/design-tokens/utilities.module.scss'
 
-import { GetData, PostData, UpdateData, DeleteData } from '@/lib/simple-note-data'
+// data
+
+const url = "/api/simple-note";
+const headers = {
+	'Content-Type': 'application/json; charset=UTF-8'
+};
+
+function GetData(url: string) {
+	return fetch(url).then((res) => res.json());
+}
+
+function PostData(text: object) {
+	const data = fetch(url, {
+		method: 'POST',
+		headers: headers,
+		body: JSON.stringify(text)
+	}).then((res) => res.json());
+	return data;
+}
+
+function UpdateData(note: object) {
+	const data = fetch(url, {
+		method: 'PATCH',
+		headers: headers,
+		body: JSON.stringify(note)
+	}).then((res) => res.json());
+	return data;
+}
+
+function DeleteData(id: object) {
+	const data = fetch(url, {
+		method: 'DELETE',
+		headers: headers,
+		body: JSON.stringify(id)
+	}).then((res) => res.json());
+	return data;
+}
+
+// layout
 
 function CreateNote({ mutate }: { mutate: any }) {
 	let [text, setText] = useState('');
@@ -151,7 +190,7 @@ function Info() {
 }
 
 export default function MiniNote() {
-	const { data, error, isLoading, mutate } = GetData();
+	const { data, error, isLoading, mutate } = useSWR(url, GetData);
 
 	return (
 		<>
