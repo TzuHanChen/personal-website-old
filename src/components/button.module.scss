@@ -3,27 +3,43 @@
 .button {
 	display: inline-block;
 	padding: 11px 17px;
-	border: 1px solid $verdigris;
 	border-radius: 24px;
-	background-color: $verdigris;
-	color: $white;
 	font-size: $font-size-p-mobile;
 	font-weight: $font-weight-regular;
 	line-height: 18px;
 }
-.button:hover, .button:active {
-	cursor: pointer;
-	animation-name: buttonChangeColor;
-	animation-duration: 0.6s;
-	animation-fill-mode: forwards;
-}
-@keyframes buttonChangeColor {
-  from {
-	background-color: $verdigris;
+
+@mixin type($c) {
+	border: 1px solid $c;
+	background-color: $c;
 	color: $white;
-  }
-  to {
-    background-color: $white;
-    color: $teal;
-  }
+
+	&:hover, &:active {
+		cursor: pointer;
+		animation-name: changeColor-#{$c};
+		animation-duration: 0.6s;
+		animation-fill-mode: forwards;
+	}
+
+	@keyframes changeColor-#{$c} {
+		from {
+			background-color: $c;
+			color: $white;
+		}
+
+		to {
+			background-color: $white;
+			color: $c;
+		}
+	}
+}
+
+.primary {
+	@include type($teal);
+}
+.secondary {
+	@include type($verdigris);
+}
+.tertiary {
+	@include type($mediumGray);
 }
