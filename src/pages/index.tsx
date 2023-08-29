@@ -7,6 +7,7 @@ import Card, { CardImage, CardText, CardButton } from '@/components/card'
 import HeroSection from '@/layouts/hero-section'
 import GridSection, { Grid } from '@/layouts/grid-section'
 import TextSection from '@/layouts/text-section'
+import styles from '@/design-tokens/utilities.module.scss'
 
 function Hero() {
 	return (
@@ -68,12 +69,15 @@ function Records({
 		<Card key={id}>
 			<CardImage image={image} alt={name} />
 			<CardText>
-				<Text type="h3">{name}</Text>
+				<div className={styles.jcsb}>
+					<Text type="h3">{name}</Text>
+					<Text><Text type="verdigris"># {type}</Text></Text>
+				</div>
 				<Text type="p">{shortIntro}</Text>
 				<Text><Text type="teal">{highlight}</Text></Text>
 			</CardText>
 			<CardButton>
-				<Text><Text type="verdigris"># {type}</Text></Text>
+				{/* <Button href={buttonLink} type="secondary">{buttonText}</Button> */}
 				<Button href={buttonLink} newtab>{buttonText}</Button>
 			</CardButton>
 		</Card>
