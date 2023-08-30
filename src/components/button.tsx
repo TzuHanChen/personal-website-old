@@ -7,7 +7,7 @@ export default function Button({ ...props }) {
 	let type = props.type || "primary";
 	let allClass = `${styles.button} ${styles[type]}`;
 	if (props.href) {
-		if (props.newtab) {
+		if (props.newTab) {
 			result = (
 				<Link href={props.href} target='_blank'>
 					<button className={allClass}>
@@ -46,7 +46,7 @@ export function ButtonShowcase() {
 			<Button href="/">button</Button>
 			<Button href="/" type="secondary">button</Button>
 			<Button href="/" type="tertiary">button</Button>
-			<Button href="https://tzuhanchen.github.io" newtab>
+			<Button href="https://tzuhanchen.github.io" newTab>
 				tzuhanchen</Button>
 		</>
 	)

@@ -174,7 +174,7 @@ function Contact() {
 					<Text type="h2">履歷</Text>
 
 					<Text>
-						<Button href="/TzuHanChen_Resume.pdf" newtab>履歷 PDF 檔案</Button>
+						<Button href="/TzuHanChen_Resume.pdf" newTab>履歷 PDF 檔案</Button>
 					</Text>
 					<br />
 					<Text align="right">© 2023 陳子涵</Text>

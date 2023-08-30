@@ -1,4 +1,4 @@
-import { InferGetStaticPropsType, GetStaticProps } from 'next';
+import type { InferGetServerSidePropsType, GetServerSideProps } from 'next'
 
 import SEO from '@/components/seo'
 import Text from '@/components/text'
@@ -20,31 +20,36 @@ function Hero() {
 	)
 }
 
-type AllRecordsBasic = {
+type RecordsCards = {
 	id: number, image: string, name: string,
-	shortIntro: string, highlight: string, type: string,
-	buttonText: string, buttonLink: string
+	type: string, intro: string, highlight: string,
+	records_links: {
+		outsideText: string, outsideLink: string, newTab: boolean
+	}[]
 }[];
 
-export const getStaticProps: GetStaticProps<{
-	allRecordsBasic: AllRecordsBasic
-}> = async () => {
+export const getServerSideProps: GetServerSideProps<
+	{ recordsCards: RecordsCards }> = async () => {
 	const endpoint = 'https://tzuhanchen-website.hasura.app/v1/graphql';
 	const headers = {
 		'Content-Type': 'application/json; charset=UTF-8',
 		"x-hasura-admin-secret": "g9hbGctVU0h9PAsNkwduoWTbaMn4ztJVvb8zPhqxkN5CILiw9yuUuDRoaJuNJZQa"
 	};
+
 	const body = {
-		"query": `query getAllRecordsBasic {
+		"query": `query recordsCards {
 			records_basic(order_by: {id: desc}, where: {public: {_eq: true}}) {
 				id
 				image
 				name
-				shortIntro
-				highlight
 				type
-				buttonText
-				buttonLink
+				intro
+				highlight
+				records_links {
+					outsideText
+					outsideLink
+					newTab
+				}
 			}
 		}`
 	};
@@ -55,17 +60,15 @@ export const getStaticProps: GetStaticProps<{
 		body: JSON.stringify(body)
 	});
 	const data = await res.json();
-	const allRecordsBasic = data.data.records_basic;
-
-	return { props: { allRecordsBasic } };
+	const recordsCards = data.data.records_basic;
+	return { props: { recordsCards } };
 }
 
-function Records({
-	allRecordsBasic
-}: { allRecordsBasic: AllRecordsBasic }) {
-	const result = allRecordsBasic.map(
-	({ id, image, name, shortIntro, highlight, 
-	type, buttonText, buttonLink }) => (
+function Records(
+	{ recordsCards }: { recordsCards: RecordsCards }) {
+	const result = recordsCards.map((
+		{ id, image, name, type, intro, highlight, records_links }
+	) => (
 		<Card key={id}>
 			<CardImage image={image} alt={name} />
 			<CardText>
@@ -73,16 +76,20 @@ function Records({
 					<Text type="h3">{name}</Text>
 					<Text><Text type="verdigris"># {type}</Text></Text>
 				</div>
-				<Text type="p">{shortIntro}</Text>
+				<Text type="p">{intro}</Text>
 				<Text><Text type="teal">{highlight}</Text></Text>
 			</CardText>
 			<CardButton>
-				{/* <Button href={buttonLink} type="secondary">{buttonText}</Button> */}
-				<Button href={buttonLink} newtab>{buttonText}</Button>
+				<Text></Text>
+				{ (records_links[0].newTab) ? 
+				<Button href={records_links[0].outsideLink} newTab>
+				{records_links[0].outsideText}</Button> :
+				<Button href={records_links[0].outsideLink}>
+				{records_links[0].outsideText}</Button> }
 			</CardButton>
 		</Card>
 	))
-	
+
 	return (
 		<GridSection>
 			<Text type="h2">職涯紀錄</Text>
@@ -103,9 +110,8 @@ function About() {
 	)
 }
 
-export default function Index({
-	allRecordsBasic
-}: InferGetStaticPropsType<typeof getStaticProps>) {
+export default function Index(
+	{ recordsCards }: { recordsCards: RecordsCards }) {
 	return (
 		<>
 			<SEO title="陳子涵 TzuHan_Chen"
@@ -115,7 +121,7 @@ export default function Index({
 
 			<main>
 				<Hero />
-				<Records allRecordsBasic={allRecordsBasic} />
+				<Records recordsCards={recordsCards} />
 				<About />
 			</main>
 		</>
