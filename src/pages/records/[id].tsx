@@ -1,8 +1,9 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
 
-import { getRecordsIds, getRecordBasic, getRecordDetail } from '@/lib/records';
+import { getRecordsIds, getRecordBasic, getRecordDetail, getRecordContent } from '@/lib/records';
 import SEO from '@/components/seo';
 import FullSection from '@/layouts/full-section';
+import TextSection from '@/layouts/text-section';
 
 export const getStaticPaths: GetStaticPaths = async () => {
 	const paths = await getRecordsIds();
@@ -12,7 +13,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async ({ params }) => {
 	const recordBasic = await getRecordBasic(params?.id as string);
 	const recordDetail = await getRecordDetail(params?.id as string);
-	return { props: { recordBasic, recordDetail } }
+	const recordContent = await getRecordContent(params?.id as string);
+	return { props: { recordBasic, recordDetail, recordContent } }
 }
 
 type RecordBasic = {
@@ -51,9 +53,19 @@ function Detail({ recordDetail }: { recordDetail: RecordDetail }) {
 	)
 }
 
+type RecordContent = string;
+
+function Content({ recordContent }: { recordContent: RecordContent }) {
+	return (
+		<TextSection>
+			<div dangerouslySetInnerHTML={{ __html: recordContent }} />
+		</TextSection>
+	)
+}
+
 export default function Record(
-	{ recordBasic, recordDetail }: 
-	{ recordBasic: RecordBasic, recordDetail: RecordDetail }) {
+	{ recordBasic, recordDetail, recordContent }:
+		{ recordBasic: RecordBasic, recordDetail: RecordDetail, recordContent: RecordContent }) {
 	return (
 		<>
 			<SEO title={recordBasic.name}
@@ -64,7 +76,7 @@ export default function Record(
 			<main>
 				<Basic recordBasic={recordBasic} />
 				<Detail recordDetail={recordDetail} />
-				{/* <div dangerouslySetInnerHTML={{ __html: recordContent.contentHtml }} /> */}
+				<Content recordContent={recordContent} />
 			</main>
 		</>
 	);

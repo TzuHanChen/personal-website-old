@@ -1,4 +1,4 @@
-import type { InferGetServerSidePropsType, GetServerSideProps } from 'next'
+import type { GetServerSideProps } from 'next'
 
 import SEO from '@/components/seo'
 import Text from '@/components/text'
