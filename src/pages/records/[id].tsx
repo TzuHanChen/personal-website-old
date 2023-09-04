@@ -7,6 +7,7 @@ import TwoSection, { OneSide } from '@/layouts/two-section';
 import GridSection, { Grid } from '@/layouts/grid-section'
 import TextSection from '@/layouts/text-section';
 import Text from '@/components/text';
+import styles from '@/components/text.module.scss'
 
 export const getStaticPaths: GetStaticPaths = async () => {
 	const paths = await getRecordsIds();
@@ -79,14 +80,13 @@ type RecordContent = string;
 function Content({ recordContent }: { recordContent: RecordContent }) {
 	return (
 		<TextSection>
-			<div dangerouslySetInnerHTML={{ __html: recordContent }} />
+			<div dangerouslySetInnerHTML={{ __html: recordContent }} className={styles.markdown} />
 		</TextSection>
 	)
 }
 
-export default function Record(
-	{ recordBasic, recordDetail, recordContent }:
-		{ recordBasic: RecordBasic, recordDetail: RecordDetail, recordContent: RecordContent }) {
+export default function Record({ recordBasic, recordDetail, recordContent }:
+	{ recordBasic: RecordBasic, recordDetail: RecordDetail, recordContent: RecordContent }) {
 	return (
 		<>
 			<SEO title={recordBasic.name}

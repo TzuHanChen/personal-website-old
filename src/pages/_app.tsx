@@ -1,9 +1,15 @@
 import Head from 'next/head';
 import Script from 'next/script';
 import type { AppProps } from 'next/app'
-import { Noto_Sans_TC } from 'next/font/google'
-const noto = Noto_Sans_TC({
+import { Noto_Sans_TC, Fira_Code } from 'next/font/google'
+const noto_sans_tc = Noto_Sans_TC({
 	weight: ['400', '700'],
+	style: ['normal'],
+	subsets: ['latin'],
+	display: 'swap',
+})
+const fira_code = Fira_Code({
+	weight: ['400'],
 	style: ['normal'],
 	subsets: ['latin'],
 	display: 'swap',
@@ -28,7 +34,10 @@ function Font() {
 		<>
 			<style jsx global>{`
 				html {
-					font-family: ${noto.style.fontFamily};
+					font-family: ${noto_sans_tc.style.fontFamily};
+				}
+				code {
+					font-family: ${fira_code.style.fontFamily};
 				}
 			`}</style>
 		</>
@@ -55,7 +64,7 @@ export default function App({ Component, pageProps }: AppProps) {
 		<>
 			<Head>
 				<Favicon />
-				<Font />
+				{/* <Font /> */}
 			</Head>
 			<GA4 />
 

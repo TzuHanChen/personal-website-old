@@ -13,42 +13,41 @@
 	}
 }
 
-.h1 {
+@mixin h1 {
 	@include text-mobile($margin-h1-mobile, $font-size-h1-mobile, $font-weight-bold, $line-height-h1-mobile);
 	@include text-desktop($font-size-h1-desktop, $line-height-h1-desktop);
 }
-.h2 {
+@mixin h2 {
 	@include text-mobile($margin-h2-mobile, $font-size-h2-mobile, $font-weight-bold, $line-height-h2-mobile);
 }
-.h3 {
+@mixin h3 {
 	@include text-mobile($margin-h3-mobile, $font-size-h3-mobile, $font-weight-bold, $line-height-h3-mobile);
 }
-.p {
+@mixin p {
 	@include text-mobile($margin-p-mobile, $font-size-p-mobile, $font-weight-regular, $line-height-p-mobile);
 }
-
-.ul, .ol {
+@mixin ul {
 	margin: 0;
 	padding: 0 0 0 24px;
 	@include text-mobile($margin-li-mobile, $font-size-li-mobile, $font-weight-regular, $line-height-li-mobile);
-}
-.ul {
 	list-style: disc;
 }
-.ol {
+@mixin ol {
+	margin: 0;
+	padding: 0 0 0 24px;
+	@include text-mobile($margin-li-mobile, $font-size-li-mobile, $font-weight-regular, $line-height-li-mobile);
 	list-style: decimal;
 }
-
-.link {
+@mixin link {
 	text-decoration: none;
 	border-bottom: 1px solid $teal;
 	color: $darkGray;
-}
-.link:hover, .link:active {
-	cursor: pointer;
-	animation-name: linkChangeColor;
-	animation-duration: 0.6s;
-	animation-fill-mode: forwards;
+	&:hover, &:active {
+		cursor: pointer;
+		animation-name: linkChangeColor;
+		animation-duration: 0.6s;
+		animation-fill-mode: forwards;
+	}
 }
 @keyframes linkChangeColor {
 	from {
@@ -61,15 +60,17 @@
 	}
 }
 
-.h1, .h2, .h3, .p, .ol, .ul, .link{
-	color: $darkGray;
-}
-.teal {
-	color: $teal;
-}
-.verdigris {
-	color: $verdigris;
-}
+.h1 { @include h1; }
+.h2 { @include h2; }
+.h3 { @include h3; }
+.p { @include p; }
+.ul { @include ul; }
+.ol { @include ol; }
+.link { @include link; }
+
+.h1, .h2, .h3, .p, .ol, .ul, .link{ color: $darkGray; }
+.teal { color: $teal; }
+.verdigris { color: $verdigris; }
 .h1, .h2, .h3, .p, .ol li, .ul li, .link, .teal, .verdigris{
 	&::selection {
 		background-color: $teal;
@@ -77,9 +78,38 @@
 	}
 }
 
-.center {
-	text-align: center;
-}
-.right {
-	text-align: right;
+.center { text-align: center; }
+.right { text-align: right; }
+
+.markdown {
+	h1 { @include h1; }
+	h2 { @include h2; }
+	h3 { @include h3; }
+	p { @include p; }
+	ul { @include ul; }
+	ol { @include ol; }
+	a { @include link; }
+	h1, h2, h3, p, ul, ol, a {
+		color: $darkGray;
+	}
+	&::selection {
+		background-color: $teal;
+		color: $white;
+	}
+	hr {
+		margin: 60px 0;
+		border-width: 1px;
+		border-color: $lightGray;
+	}
+	img {
+		margin: 60px 0;
+		border-radius: 30px;
+	}
+	code {
+		border-radius: 6px;
+		padding: 0 6px;
+		font-family: 'Fira Code', monospace;
+		background-color: $darkGray;
+		color: $lightGray;
+	}
 }
