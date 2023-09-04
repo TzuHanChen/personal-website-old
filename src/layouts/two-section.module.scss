@@ -2,7 +2,6 @@
 
 .one-side {
 	width: 100%;
-	min-height: 300px;
 	border-radius: 30px;
 	background-color: $white;
 	display: flex;
@@ -11,10 +10,6 @@
 
 	@media (min-width: $breakpoint1) {
 		width: calc((100% - $grid-gap-sm) / 2);
-		min-height: 360px;
-	}
-	@media (min-width: $breakpoint2) {
-		min-height: 480px;
 	}
 
 	&:first-child {
@@ -27,8 +22,20 @@
 	}
 }
 
+.min-height {
+	min-height: 300px;
+	@media (min-width: $breakpoint1) {
+		min-height: 360px;
+	}
+	@media (min-width: $breakpoint2) {
+		min-height: 480px;
+	}
+}
 .add-padding {
 	padding: 30px;
+}
+.text-align-right {
+	text-align: right;
 }
 
 .two-section {

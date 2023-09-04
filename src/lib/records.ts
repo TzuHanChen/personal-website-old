@@ -9,7 +9,6 @@ const headers = {
 	'Content-Type': 'application/json; charset=UTF-8',
 	'x-hasura-admin-secret': 'g9hbGctVU0h9PAsNkwduoWTbaMn4ztJVvb8zPhqxkN5CILiw9yuUuDRoaJuNJZQa'
 };
-const recordsDirectory = path.join(process.cwd(), 'src/records');
 
 export async function getRecordsCards() {
 	const res = await fetch(endpoint, {
@@ -67,8 +66,7 @@ export async function getRecordBasic(id: string) {
 		headers: headers,
 		body: JSON.stringify({
 			'query': `query recordBasic($id: String!) {
-				records_basic(where: {id: {_eq: $id}}) {
-					id
+				records_basic_by_pk(id: $id) {
 					image
 					name
 					type
@@ -80,7 +78,7 @@ export async function getRecordBasic(id: string) {
 		})
 	})
 	const data = await res.json();
-	return data.data.records_basic[0];
+	return data.data.records_basic_by_pk;
 }
 
 export async function getRecordDetail(id: string) {
@@ -106,7 +104,8 @@ export async function getRecordDetail(id: string) {
 }
 
 export async function getRecordContent(id: string) {
-	const fullPath = path.join(recordsDirectory, `${id}.md`);
+	const recordsFolder = path.join(process.cwd(), 'src/records/');
+	const fullPath = path.join(recordsFolder, `${id}.md`);
 	const fileContents = fs.readFileSync(fullPath, 'utf8');
 
 	// Use gray-matter to parse the post metadata section
@@ -118,4 +117,94 @@ export async function getRecordContent(id: string) {
     	.process(matterResult.content);
 	const contentHtml = processedContent.toString();
 	return contentHtml;
+}
+
+export async function getRecordLink(id: string) {
+	const res = await fetch(endpoint, {
+		method: 'POST',
+		headers: headers,
+		body: JSON.stringify({
+			'query': `query recordLink($id: String!) {
+				records_link_by_pk(id: $id) {
+					outsideText
+					outsideLink
+					newTab
+				}
+			}`,
+			'variables': { 'id': id }
+		})
+	});
+	const data = await res.json();
+	return data.data.records_link_by_pk;
+}
+
+export async function getRecordOrder(id: string) {
+	const res = await fetch(endpoint, {
+		method: 'POST',
+		headers: headers,
+		body: JSON.stringify({
+			'query': `query recordOrder($id: String!) {
+				records_basic_by_pk(id: $id) {
+					order
+				}
+			}`,
+			'variables': { 'id': id }
+		})
+	});
+	const data = await res.json();
+	return data.data.records_basic_by_pk.order;
+}
+
+export async function getPrevRecord(order: number) {
+	const res = await fetch(endpoint, {
+		method: 'POST',
+		headers: headers,
+		body: JSON.stringify({
+			'query': `query recordOrder($order: Int!) {
+				records_basic(where: {order: {_eq: $order}}) {
+					id
+					name
+				}
+			}`,
+			'variables': { 'order': order-1 }
+		})
+	});
+	const data = await res.json();
+	return data.data.records_basic[0];
+}
+
+export async function getRecordCount() {
+	const res = await fetch(endpoint, {
+		method: 'POST',
+		headers: headers,
+		body: JSON.stringify({
+			'query': `query recordOrder {
+				records_basic_aggregate {
+					aggregate {
+						count
+					}
+				}
+			}`
+		})
+	});
+	const data = await res.json();
+	return data.data.records_basic_aggregate.aggregate.count;
+}
+
+export async function getNextRecord(order: number) {
+	const res = await fetch(endpoint, {
+		method: 'POST',
+		headers: headers,
+		body: JSON.stringify({
+			'query': `query recordOrder($order: Int!) {
+				records_basic(where: {order: {_eq: $order}}) {
+					id
+					name
+				}
+			}`,
+			'variables': { 'order': order+1 }
+		})
+	});
+	const data = await res.json();
+	return data.data.records_basic[0];
 }

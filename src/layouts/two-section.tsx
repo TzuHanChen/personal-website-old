@@ -1,8 +1,10 @@
 import styles from './two-section.module.scss'
 
 export function OneSide({ ...props }) {
-	const padding = (props.addPadding) ? styles['add-padding'] : null;
-	const allClass = `${styles['one-side']} ${padding}`;
+	const addPadding = (props.addPadding) ? styles['add-padding'] : null;
+	const minHeight = (props.minHeight) ? styles['min-height'] : null;
+	const textAlignRight = (props.textAlignRight) ? styles['text-align-right'] : null;
+	const allClass = `${styles['one-side']} ${minHeight} ${addPadding} ${textAlignRight}`;
 	return (
 		<div className={allClass}>
 			{ props.children }
