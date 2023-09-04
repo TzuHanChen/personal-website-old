@@ -9,7 +9,7 @@ const headers = {
 	'Content-Type': 'application/json; charset=UTF-8',
 	'x-hasura-admin-secret': 'g9hbGctVU0h9PAsNkwduoWTbaMn4ztJVvb8zPhqxkN5CILiw9yuUuDRoaJuNJZQa'
 };
-const postsDirectory = path.join(process.cwd(), 'src/records');
+const recordsDirectory = path.join(process.cwd(), 'src/records');
 
 export async function getRecordsCards() {
 	const res = await fetch(endpoint, {
@@ -106,7 +106,7 @@ export async function getRecordDetail(id: string) {
 }
 
 export async function getRecordContent(id: string) {
-	const fullPath = path.join(postsDirectory, `${id}.md`);
+	const fullPath = path.join(recordsDirectory, `${id}.md`);
 	const fileContents = fs.readFileSync(fullPath, 'utf8');
 
 	// Use gray-matter to parse the post metadata section

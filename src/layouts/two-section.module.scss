@@ -1,0 +1,47 @@
+@use '../design-tokens/index.module.scss' as *;
+
+.one-side {
+	width: 100%;
+	min-height: 300px;
+	border-radius: 30px;
+	background-color: $white;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+
+	@media (min-width: $breakpoint1) {
+		width: calc((100% - $grid-gap-sm) / 2);
+		min-height: 360px;
+	}
+	@media (min-width: $breakpoint2) {
+		min-height: 480px;
+	}
+
+	&:first-child {
+		@media (max-width: calc($breakpoint1 - 1px)) {
+			margin-bottom: $grid-gap-sm;
+		}
+		@media (min-width: $breakpoint1) {
+			margin-bottom: 0;
+		}
+	}
+}
+
+.add-padding {
+	padding: 30px;
+}
+
+.two-section {
+	margin: 0 auto;
+	width: $card-width;
+	padding: 24px 0;
+
+	@media (min-width: $breakpoint1) {
+		width: calc($card-width*2 + $grid-gap-md);
+		display: flex;
+		justify-content: space-between;
+	}
+	@media (min-width: $breakpoint2) {
+		width: calc($card-width*3 + $grid-gap-lg*2);
+	}
+}
