@@ -5,7 +5,7 @@ import SEO from '@/components/seo'
 import Text from '@/components/text'
 import Button from '@/components/button'
 import TextSection from '@/layouts/text-section'
-import GridSection, { Grid } from '@/layouts/block-section'
+import BlockSection, { BlockArea } from '@/layouts/block-section'
 import styles from '@/design-tokens/utilities.module.scss'
 
 // data
@@ -200,7 +200,7 @@ export default function MiniNote() {
 				image="/images/simple-note.png" />
 
 			<main>
-				<GridSection>
+				<BlockSection>
 					<div className={styles.jcsb}>
 						<Text type="h1">簡單筆記</Text>
 						{/* <Text type="h1">留言板 Bulletin board</Text> */}
@@ -208,10 +208,10 @@ export default function MiniNote() {
 						<CreateNote mutate={mutate} />
 					</div>
 
-					<Grid marginTop>
+					<BlockArea marginTop>
 						<Notes data={data} error={error} isLoading={isLoading} mutate={mutate} />
-					</Grid>
-				</GridSection>
+					</BlockArea>
+				</BlockSection>
 
 				<Info />
 			</main>

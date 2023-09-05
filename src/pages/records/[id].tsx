@@ -100,19 +100,19 @@ function OutsideLink({ recordLink }: { recordLink: RecordLink }) {
 		<BlockSection>
 			<BlockArea type='flex'>
 				<Block widthCard addPadding>
-					<Text type="h3">相關連結</Text>
+					<Text type="h3">相關連結 (開發中)</Text>
 					<Text align="right">
 						<Button href={recordLink.outsideLink} newTab={recordLink.newTab}>{recordLink.outsideText}</Button>
 					</Text>
 				</Block>
 				<Block widthCard addPadding>
-					<Text type="h3">相關連結</Text>
+					<Text type="h3">相關連結 (開發中)</Text>
 					<Text align="right">
 						<Button href={recordLink.outsideLink} newTab={recordLink.newTab}>{recordLink.outsideText}</Button>
 					</Text>
 				</Block>
 				<Block widthCard addPadding>
-					<Text type="h3">相關連結</Text>
+					<Text type="h3">相關連結 (開發中)</Text>
 					<Text align="right">
 						<Button href={recordLink.outsideLink} newTab={recordLink.newTab}>{recordLink.outsideText}</Button>
 					</Text>
@@ -126,10 +126,10 @@ function PrevNext() {
 	return (
 		<TwoSection>
 			<Block addPadding>
-				<Text>上一個紀錄</Text>
+				<Text>上一個紀錄 (開發中)</Text>
 			</Block>
 			<Block addPadding textAlignRight>
-				<Text>下一個紀錄</Text>
+				<Text>下一個紀錄 (開發中)</Text>
 			</Block>
 		</TwoSection>
 	)
