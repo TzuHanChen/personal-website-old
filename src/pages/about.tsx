@@ -5,7 +5,7 @@ import SEO from '@/components/seo'
 import Text from '@/components/text'
 import Button from '@/components/button'
 import TextSection from '@/layouts/text-section'
-import GridSection, { Grid } from '@/layouts/grid-section'
+import BlockSection, { BlockArea } from '@/layouts/block-section'
 import styles from '@/design-tokens/utilities.module.scss'
 
 function Intro() {
@@ -85,8 +85,8 @@ function TotalUsers() {
 
 function Skills() {
 	return (
-		<GridSection>
-			<Grid>
+		<BlockSection>
+			<BlockArea>
 				<div>
 					<Text type="h2">技能</Text>
 
@@ -128,8 +128,8 @@ function Skills() {
 							放視大賞得獎作品頁面</Text>
 					</Text>
 				</div>
-			</Grid>
-		</GridSection>
+			</BlockArea>
+		</BlockSection>
 	)
 }
 
@@ -148,8 +148,8 @@ function Education() {
 
 function Contact() {
 	return (
-		<GridSection>
-			<Grid>
+		<BlockSection>
+			<BlockArea>
 				<div>
 					<Text type="h2">聯絡資訊</Text>
 
@@ -179,8 +179,8 @@ function Contact() {
 					<br />
 					<Text align="right">© 2023 陳子涵</Text>
 				</div>
-			</Grid>
-		</GridSection>
+			</BlockArea>
+		</BlockSection>
 	)
 }
 

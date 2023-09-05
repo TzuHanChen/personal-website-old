@@ -5,7 +5,7 @@ import Text from '@/components/text'
 import Button from '@/components/button'
 import Card, { CardImage, CardText, CardButton } from '@/components/card'
 import HeroSection from '@/layouts/hero-section'
-import GridSection, { Grid } from '@/layouts/grid-section'
+import BlockSection, { BlockArea } from '@/layouts/block-section'
 import TextSection from '@/layouts/text-section'
 import { getRecordsCards } from '@/lib/records'
 import styles from '@/design-tokens/utilities.module.scss'
@@ -62,10 +62,10 @@ function Records(
 	))
 
 	return (
-		<GridSection>
+		<BlockSection>
 			<Text type="h2">職涯紀錄</Text>
-			<Grid marginTop>{result}</Grid>
-		</GridSection>
+			<BlockArea marginTop>{result}</BlockArea>
+		</BlockSection>
 	)
 }
 

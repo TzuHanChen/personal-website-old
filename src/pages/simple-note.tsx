@@ -5,7 +5,7 @@ import SEO from '@/components/seo'
 import Text from '@/components/text'
 import Button from '@/components/button'
 import TextSection from '@/layouts/text-section'
-import GridSection, { Grid } from '@/layouts/grid-section'
+import GridSection, { Grid } from '@/layouts/block-section'
 import styles from '@/design-tokens/utilities.module.scss'
 
 // data

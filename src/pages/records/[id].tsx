@@ -3,9 +3,10 @@ import Image from 'next/image';
 
 import { getRecordsIds, getRecordBasic, getRecordDetail, getRecordContent, getRecordLink } from '@/lib/records';
 import SEO from '@/components/seo';
-import TwoSection, { OneSide } from '@/layouts/two-section';
-import GridSection, { Grid } from '@/layouts/grid-section'
+import TwoSection from '@/layouts/two-section';
+import BlockSection, { BlockArea } from '@/layouts/block-section'
 import TextSection from '@/layouts/text-section';
+import Block from '@/components/block';
 import Text from '@/components/text';
 import Button from '@/components/button';
 import styles from '@/components/text.module.scss'
@@ -20,8 +21,9 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 	const recordDetail = await getRecordDetail(params?.id as string);
 	const recordContent = await getRecordContent(params?.id as string);
 	const recordLink = await getRecordLink(params?.id as string);
-	return { props: 
-		{ recordBasic, recordDetail, recordContent, recordLink }
+	return {
+		props:
+			{ recordBasic, recordDetail, recordContent, recordLink }
 	}
 }
 
@@ -33,16 +35,16 @@ type RecordBasic = {
 function Basic({ recordBasic }: { recordBasic: RecordBasic }) {
 	return (
 		<TwoSection>
-			<OneSide minHeight addPadding>
+			<Block minHeight addPadding>
 				<Text type='h1'>{recordBasic.name}</Text>
 				<Text>
 					<Text type='teal'># {recordBasic.type}</Text>
 				</Text>
 				<Text>{recordBasic.intro}</Text>
-			</OneSide>
-			<OneSide minHeight>
+			</Block>
+			<Block minHeight>
 				<Image src={`/images/${recordBasic.image}`} priority={true} alt={recordBasic.name} width={720} height={512}></Image>
-			</OneSide>
+			</Block>
 		</TwoSection>
 	)
 }
@@ -56,8 +58,8 @@ function Detail({ recordDetail }: { recordDetail: RecordDetail }) {
 	const skillArray = recordDetail.skill.split('\\n');
 
 	return (
-		<GridSection>
-			<Grid>
+		<BlockSection>
+			<BlockArea>
 				<div>
 					<Text>執行期間：{recordDetail.start} ~ {recordDetail.end}</Text>
 				</div>
@@ -74,8 +76,8 @@ function Detail({ recordDetail }: { recordDetail: RecordDetail }) {
 						})}
 					</Text>
 				</div>
-			</Grid>
-		</GridSection>
+			</BlockArea>
+		</BlockSection>
 	)
 }
 
@@ -95,24 +97,40 @@ type RecordLink = {
 
 function OutsideLink({ recordLink }: { recordLink: RecordLink }) {
 	return (
-		<TextSection>
-			<Text type="h3">相關連結</Text>
-			<Text align="right">
-				<Button href={recordLink.outsideLink} newTab={recordLink.newTab}>{recordLink.outsideText}</Button>
-			</Text>
-		</TextSection>
+		<BlockSection>
+			<BlockArea type='flex'>
+				<Block widthCard addPadding>
+					<Text type="h3">相關連結</Text>
+					<Text align="right">
+						<Button href={recordLink.outsideLink} newTab={recordLink.newTab}>{recordLink.outsideText}</Button>
+					</Text>
+				</Block>
+				<Block widthCard addPadding>
+					<Text type="h3">相關連結</Text>
+					<Text align="right">
+						<Button href={recordLink.outsideLink} newTab={recordLink.newTab}>{recordLink.outsideText}</Button>
+					</Text>
+				</Block>
+				<Block widthCard addPadding>
+					<Text type="h3">相關連結</Text>
+					<Text align="right">
+						<Button href={recordLink.outsideLink} newTab={recordLink.newTab}>{recordLink.outsideText}</Button>
+					</Text>
+				</Block>
+			</BlockArea>
+		</BlockSection>
 	)
 }
 
 function PrevNext() {
 	return (
 		<TwoSection>
-			<OneSide addPadding>
+			<Block addPadding>
 				<Text>上一個紀錄</Text>
-			</OneSide>
-			<OneSide addPadding textAlignRight>
+			</Block>
+			<Block addPadding textAlignRight>
 				<Text>下一個紀錄</Text>
-			</OneSide>
+			</Block>
 		</TwoSection>
 	)
 }
