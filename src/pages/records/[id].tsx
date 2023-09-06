@@ -1,5 +1,6 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
 import Image from 'next/image';
+import Link from 'next/link';
 
 import { getRecordsIds, getRecordBasic, getRecordDetail, getRecordContent, getRecordLink, getRecordOrder, getPrevRecord, getRecordCount, getNextRecord } from '@/lib/records';
 import SEO from '@/components/seo';
@@ -20,9 +21,21 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 	const recordDetail = await getRecordDetail(params?.id as string);
 	const recordContent = await getRecordContent(params?.id as string);
 	const recordLink = await getRecordLink(params?.id as string);
+
+	let order = await getRecordOrder(params?.id as string);
+	let count = await getRecordCount();
+	let prev, next;
+	prev = (order == 1) ? {
+		"id": "0",
+		"name": "0"
+	} : await getPrevRecord(order);
+	next = (order == count) ? {
+		"id": "0",
+		"name": "0"
+	} : await getNextRecord(order);
+
 	return {
-		props:
-			{ recordBasic, recordDetail, recordContent, recordLink }
+		props: { recordBasic, recordDetail, recordContent, recordLink, prev, next }
 	}
 }
 
@@ -122,23 +135,54 @@ function OutsideLink({ recordLink }: { recordLink: RecordLink }) {
 	)
 }
 
-function PrevNext() {
+type OtherRecord = { id: string, name: string };
+
+function PrevNext({ prev, next }:
+	{ prev: OtherRecord, next: OtherRecord }) {
+	let prevRecord, nextRecord;
+	if (prev.id == '0') {
+		prevRecord = <Link href="/#records">
+			<Block addPadding>
+				<Text>上一個紀錄</Text>
+				<Text type='h3'>返回所有紀錄</Text>
+			</Block>
+		</Link>
+	} else {
+		prevRecord = <Link href={prev.id}>
+			<Block addPadding>
+				<Text>上一個紀錄</Text>
+				<Text type='h3'>{prev.name}</Text>
+			</Block>
+		</Link>
+	}
+	if (next.id == '0') {
+		nextRecord = <Link href="/#records">
+			<Block addPadding textAlignRight>
+				<Text>下一個紀錄</Text>
+				<Text type='h3'>返回所有紀錄</Text>
+			</Block>
+		</Link>
+	} else {
+		nextRecord = <Link href={next.id}>
+			<Block addPadding textAlignRight>
+				<Text>下一個紀錄</Text>
+				<Text type='h3'>{next.name}</Text>
+			</Block>
+		</Link>
+	}
+
 	return (
 		<BlockSection>
 			<BlockArea>
-				<Block addPadding>
-					<Text>上一個紀錄 (開發中)</Text>
-				</Block>
-				<Block addPadding textAlignRight>
-					<Text>下一個紀錄 (開發中)</Text>
-				</Block>
+				{prevRecord}{nextRecord}
 			</BlockArea>
 		</BlockSection>
 	)
 }
 
-export default function Record({ recordBasic, recordDetail, recordContent, recordLink }:
-	{ recordBasic: RecordBasic, recordDetail: RecordDetail, recordContent: RecordContent, recordLink: RecordLink }) {
+export default function Record({ recordBasic, recordDetail, recordContent, recordLink, prev, next }:
+	{ recordBasic: RecordBasic, recordDetail: RecordDetail, recordContent: RecordContent, recordLink: RecordLink,
+	prev: OtherRecord, next: OtherRecord }) {
 	return (
 		<>
 			<SEO title={recordBasic.name}
@@ -151,7 +195,7 @@ export default function Record({ recordBasic, recordDetail, recordContent, recor
 				<Detail recordDetail={recordDetail} />
 				<Content recordContent={recordContent} />
 				<OutsideLink recordLink={recordLink} />
-				<PrevNext />
+				<PrevNext prev={prev} next={next} />
 			</main>
 		</>
 	);

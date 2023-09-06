@@ -62,7 +62,7 @@ function Records(
 	))
 
 	return (
-		<BlockSection>
+		<BlockSection id='records'>
 			<Text type="h2">職涯紀錄</Text>
 			<BlockArea marginTop column={3}>{result}</BlockArea>
 		</BlockSection>

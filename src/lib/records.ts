@@ -67,6 +67,7 @@ export async function getRecordBasic(id: string) {
 		body: JSON.stringify({
 			'query': `query recordBasic($id: String!) {
 				records_basic_by_pk(id: $id) {
+					id
 					image
 					name
 					type
@@ -74,7 +75,7 @@ export async function getRecordBasic(id: string) {
 					highlight
 				}
 			}`,
-			'variables': { 'id': id }
+			'variables': { "id": id }
 		})
 	})
 	const data = await res.json();
@@ -96,7 +97,7 @@ export async function getRecordDetail(id: string) {
 					skill
 				}
 			}`,
-			'variables': { 'id': id }
+			'variables': { "id": id }
 		})
 	})
 	const data = await res.json();
@@ -131,7 +132,7 @@ export async function getRecordLink(id: string) {
 					newTab
 				}
 			}`,
-			'variables': { 'id': id }
+			'variables': { "id": id }
 		})
 	});
 	const data = await res.json();
@@ -148,7 +149,7 @@ export async function getRecordOrder(id: string) {
 					order
 				}
 			}`,
-			'variables': { 'id': id }
+			'variables': { "id": id }
 		})
 	});
 	const data = await res.json();
@@ -166,7 +167,7 @@ export async function getPrevRecord(order: number) {
 					name
 				}
 			}`,
-			'variables': { 'order': order-1 }
+			'variables': { "order": order-1 }
 		})
 	});
 	const data = await res.json();
@@ -202,7 +203,7 @@ export async function getNextRecord(order: number) {
 					name
 				}
 			}`,
-			'variables': { 'order': order+1 }
+			'variables': { "order": order+1 }
 		})
 	});
 	const data = await res.json();
