@@ -9,10 +9,10 @@ export default function BlockSection({ ...props }) {
 }
 
 export function BlockArea({ ...props }) {
-	const type = (props.type == 'flex') ? styles['flex'] : styles['grid'];
+	const type = (props.type == 'flex') ? 'flex' : 'grid';
 	const marginTop = (props.marginTop) ? styles['margin-top'] : null;
-	const column = (props.column == 3) ? styles['grid-3'] : null;
-	const allClass = `${type} ${marginTop} ${column}`;
+	let column = (props.column == 3) ? styles[`${type}-3`] : null;
+	const allClass = `${styles[type]} ${marginTop} ${column}`;
 	return (
 		<div className={allClass}>
 			{ props.children }

@@ -49,20 +49,57 @@
 		width: calc($card-width * 2 + $grid-gap-md);
 		display: flex;
 		justify-content: center;
+		flex-wrap: wrap;
 	}
 	@media (min-width: $breakpoint2) {
 		width: calc($card-width * 3 + $grid-gap-lg * 2);
 	}
 
-	& div:not(div:last-child) {
-		@media (max-width: calc($breakpoint1 - 1px)) {
-			margin-bottom: $grid-gap-sm;
+	@media (max-width: calc($breakpoint1 - 1px)) {
+		& div:not(div:first-child) {
+			margin-top: $grid-gap-sm;
 		}
-		@media (min-width: $breakpoint1) {
-			margin-right: $grid-gap-md;
+	}
+	@media (min-width: $breakpoint1) {
+		& div {
+			width: calc((100% - $grid-gap-md) / 2);
 		}
-		@media (min-width: $breakpoint2) {
-			margin-right: $grid-gap-lg;
+		& div:nth-child(2n) {
+			margin-left: $grid-gap-md;
+		}
+		& div:nth-child(n+3) {
+			margin-top: $grid-gap-md;
+		}
+	}
+	@media (min-width: $breakpoint2) {
+		& div {
+			width: calc((100% - $grid-gap-lg) / 2);
+		}
+		& div:nth-child(2n) {
+			margin-left: $grid-gap-lg;
+		}
+		& div:nth-child(n+3) {
+			margin-top: $grid-gap-lg;
+		}
+	}
+}
+
+.flex-3 {
+	@media (min-width: $breakpoint2) {
+		& div {
+			width: $card-width;
+		}
+		& div:nth-child(2n) {
+			margin-left: 0;
+		}
+		& div:nth-child(n+3) {
+			margin-top: 0;
+		}
+		& div:not(div:nth-child(3n+1)) {
+			margin-left: $grid-gap-lg;
+		}
+		& div:nth-child(n+4) {
+			margin-top: $grid-gap-lg;
 		}
 	}
 }

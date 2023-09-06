@@ -3,7 +3,6 @@ import Image from 'next/image';
 
 import { getRecordsIds, getRecordBasic, getRecordDetail, getRecordContent, getRecordLink } from '@/lib/records';
 import SEO from '@/components/seo';
-import TwoSection from '@/layouts/two-section';
 import BlockSection, { BlockArea } from '@/layouts/block-section'
 import TextSection from '@/layouts/text-section';
 import Block from '@/components/block';
@@ -34,18 +33,20 @@ type RecordBasic = {
 
 function Basic({ recordBasic }: { recordBasic: RecordBasic }) {
 	return (
-		<TwoSection>
-			<Block minHeight addPadding>
-				<Text type='h1'>{recordBasic.name}</Text>
-				<Text>
-					<Text type='teal'># {recordBasic.type}</Text>
-				</Text>
-				<Text>{recordBasic.intro}</Text>
-			</Block>
-			<Block minHeight>
-				<Image src={`/images/${recordBasic.image}`} priority={true} alt={recordBasic.name} width={720} height={512}></Image>
-			</Block>
-		</TwoSection>
+		<BlockSection>
+			<BlockArea>
+				<Block minHeight addPadding>
+					<Text type='h1'>{recordBasic.name}</Text>
+					<Text>
+						<Text type='teal'># {recordBasic.type}</Text>
+					</Text>
+					<Text>{recordBasic.intro}</Text>
+				</Block>
+				<Block minHeight>
+					<Image src={`/images/${recordBasic.image}`} priority={true} alt={recordBasic.name} width={720} height={512}></Image>
+				</Block>
+			</BlockArea>
+		</BlockSection>
 	)
 }
 
@@ -96,33 +97,18 @@ type RecordLink = {
 };
 
 function OutsideLink({ recordLink }: { recordLink: RecordLink }) {
+	const oneBlock = (
+		<Block widthCard addPadding>
+			<Text type="h3">相關連結 (開發中)</Text>
+			<Text align="right">
+				<Button href={recordLink.outsideLink} newTab={recordLink.newTab}>{recordLink.outsideText}</Button>
+			</Text>
+		</Block>
+	)
 	return (
 		<BlockSection>
-			<BlockArea type='flex'>
-				<Block widthCard addPadding>
-					<Text type="h3">相關連結 (開發中)</Text>
-					<Text align="right">
-						<Button href={recordLink.outsideLink} newTab={recordLink.newTab}>{recordLink.outsideText}</Button>
-					</Text>
-				</Block>
-				<Block widthCard addPadding>
-					<Text type="h3">相關連結 (開發中)</Text>
-					<Text align="right">
-						<Button href={recordLink.outsideLink} newTab={recordLink.newTab}>{recordLink.outsideText}</Button>
-					</Text>
-				</Block>
-				<Block widthCard addPadding>
-					<Text type="h3">相關連結 (開發中)</Text>
-					<Text align="right">
-						<Button href={recordLink.outsideLink} newTab={recordLink.newTab}>{recordLink.outsideText}</Button>
-					</Text>
-				</Block>
-				<Block widthCard addPadding>
-					<Text type="h3">相關連結 (開發中)</Text>
-					<Text align="right">
-						<Button href={recordLink.outsideLink} newTab={recordLink.newTab}>{recordLink.outsideText}</Button>
-					</Text>
-				</Block>
+			<BlockArea type='flex' column={3}>
+				{oneBlock}{oneBlock}{oneBlock}{oneBlock}{oneBlock}
 			</BlockArea>
 		</BlockSection>
 	)
