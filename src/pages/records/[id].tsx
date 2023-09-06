@@ -59,7 +59,7 @@ function Detail({ recordDetail }: { recordDetail: RecordDetail }) {
 
 	return (
 		<BlockSection>
-			<BlockArea>
+			<BlockArea column={3}>
 				<div>
 					<Text>執行期間：{recordDetail.start} ~ {recordDetail.end}</Text>
 				</div>
@@ -117,6 +117,12 @@ function OutsideLink({ recordLink }: { recordLink: RecordLink }) {
 						<Button href={recordLink.outsideLink} newTab={recordLink.newTab}>{recordLink.outsideText}</Button>
 					</Text>
 				</Block>
+				<Block widthCard addPadding>
+					<Text type="h3">相關連結 (開發中)</Text>
+					<Text align="right">
+						<Button href={recordLink.outsideLink} newTab={recordLink.newTab}>{recordLink.outsideText}</Button>
+					</Text>
+				</Block>
 			</BlockArea>
 		</BlockSection>
 	)
@@ -124,14 +130,16 @@ function OutsideLink({ recordLink }: { recordLink: RecordLink }) {
 
 function PrevNext() {
 	return (
-		<TwoSection>
-			<Block addPadding>
-				<Text>上一個紀錄 (開發中)</Text>
-			</Block>
-			<Block addPadding textAlignRight>
-				<Text>下一個紀錄 (開發中)</Text>
-			</Block>
-		</TwoSection>
+		<BlockSection>
+			<BlockArea>
+				<Block addPadding>
+					<Text>上一個紀錄 (開發中)</Text>
+				</Block>
+				<Block addPadding textAlignRight>
+					<Text>下一個紀錄 (開發中)</Text>
+				</Block>
+			</BlockArea>
+		</BlockSection>
 	)
 }
 

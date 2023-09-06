@@ -1,6 +1,6 @@
 @use '../design-tokens/index.module.scss' as *;
 
-.grid-section {
+.block-section {
 	margin: 0 auto;
 	width: $card-width;
 	padding: 24px 0;
@@ -14,6 +14,16 @@
 	}
 }
 
+.margin-top {
+	margin-top: $grid-gap-sm;
+	@media (min-width: $breakpoint1) {
+		margin-top: $grid-gap-md;
+	}
+	@media (min-width: $breakpoint2) {
+		margin-top: $grid-gap-lg;
+	}
+}
+
 .grid {
 	display: grid;
 	grid-template-columns: repeat(1, 1fr);
@@ -23,8 +33,13 @@
 		gap: $grid-gap-md;
 	}
 	@media (min-width: $breakpoint2) {
-		grid-template-columns: repeat(3, 1fr);
 		gap: $grid-gap-lg;
+	}
+}
+
+.grid-3 {
+	@media (min-width: $breakpoint2) {
+		grid-template-columns: repeat(3, 1fr);
 	}
 }
 
@@ -49,15 +64,5 @@
 		@media (min-width: $breakpoint2) {
 			margin-right: $grid-gap-lg;
 		}
-	}
-}
-
-.margin-top {
-	margin-top: $grid-gap-sm;
-	@media (min-width: $breakpoint1) {
-		margin-top: $grid-gap-md;
-	}
-	@media (min-width: $breakpoint2) {
-		margin-top: $grid-gap-lg;
 	}
 }

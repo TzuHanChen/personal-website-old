@@ -86,7 +86,7 @@ function TotalUsers() {
 function Skills() {
 	return (
 		<BlockSection>
-			<BlockArea>
+			<BlockArea column={3}>
 				<div>
 					<Text type="h2">技能</Text>
 
@@ -149,7 +149,7 @@ function Education() {
 function Contact() {
 	return (
 		<BlockSection>
-			<BlockArea>
+			<BlockArea column={3}>
 				<div>
 					<Text type="h2">聯絡資訊</Text>
 

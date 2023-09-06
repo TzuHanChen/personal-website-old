@@ -208,7 +208,7 @@ export default function MiniNote() {
 						<CreateNote mutate={mutate} />
 					</div>
 
-					<BlockArea marginTop>
+					<BlockArea marginTop column={3}>
 						<Notes data={data} error={error} isLoading={isLoading} mutate={mutate} />
 					</BlockArea>
 				</BlockSection>

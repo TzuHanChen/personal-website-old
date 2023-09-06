@@ -64,7 +64,7 @@ function Records(
 	return (
 		<BlockSection>
 			<Text type="h2">職涯紀錄</Text>
-			<BlockArea marginTop>{result}</BlockArea>
+			<BlockArea marginTop column={3}>{result}</BlockArea>
 		</BlockSection>
 	)
 }
