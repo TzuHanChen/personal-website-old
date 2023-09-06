@@ -1,7 +1,7 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
 import Image from 'next/image';
 
-import { getRecordsIds, getRecordBasic, getRecordDetail, getRecordContent, getRecordLink } from '@/lib/records';
+import { getRecordsIds, getRecordBasic, getRecordDetail, getRecordContent, getRecordLink, getRecordOrder, getPrevRecord, getRecordCount, getNextRecord } from '@/lib/records';
 import SEO from '@/components/seo';
 import BlockSection, { BlockArea } from '@/layouts/block-section'
 import TextSection from '@/layouts/text-section';
@@ -87,7 +87,7 @@ type RecordContent = string;
 function Content({ recordContent }: { recordContent: RecordContent }) {
 	return (
 		<TextSection>
-			<div dangerouslySetInnerHTML={{ __html: recordContent }} className={styles.markdown} />
+			<article dangerouslySetInnerHTML={{ __html: recordContent }} className={styles.markdown} />
 		</TextSection>
 	)
 }
@@ -97,18 +97,26 @@ type RecordLink = {
 };
 
 function OutsideLink({ recordLink }: { recordLink: RecordLink }) {
-	const oneBlock = (
-		<Block widthCard addPadding>
-			<Text type="h3">相關連結 (開發中)</Text>
-			<Text align="right">
-				<Button href={recordLink.outsideLink} newTab={recordLink.newTab}>{recordLink.outsideText}</Button>
-			</Text>
-		</Block>
-	)
+	let result;
+	if (recordLink.outsideText == null) {
+		result = '沒有相關連結';
+	} else {
+		const type = (recordLink.outsideText == '敬請期待') ? 'tertiary' : 'primary';
+		result = (
+			<Button href={recordLink.outsideLink}
+				newTab={recordLink.newTab} type={type}>
+				{recordLink.outsideText}
+			</Button>
+		);
+	}
+
 	return (
 		<BlockSection>
 			<BlockArea type='flex' column={3}>
-				{oneBlock}{oneBlock}{oneBlock}{oneBlock}{oneBlock}
+				<Block addPadding>
+					<Text type="h3">相關連結</Text>
+					<Text align="right">{result}</Text>
+				</Block>
 			</BlockArea>
 		</BlockSection>
 	)
