@@ -22,7 +22,7 @@ function Hero() {
 }
 
 type RecordsCards = {
-	id: number, image: string, name: string,
+	id: string, image: string, name: string,
 	type: string, intro: string, highlight: string,
 	records_links: {
 		outsideText: string, outsideLink: string, newTab: boolean
@@ -34,6 +34,11 @@ export const getServerSideProps: GetServerSideProps<
 		const recordsCards = await getRecordsCards();
 		return { props: { recordsCards } };
 	}
+
+function InsideButton({ id }: { id: string }) {
+	return <Button href={`/records/${id}`} type='secondary'>
+		詳細說明</Button>
+}
 
 function OutsideButton(
 	{ records_link: { outsideText, outsideLink, newTab } }:
@@ -68,7 +73,7 @@ function Records(
 				<Text><Text type="teal">{highlight}</Text></Text>
 			</CardText>
 			<CardButton>
-				<Text></Text>
+				<InsideButton id={id} />
 				<OutsideButton records_link={records_links[0]} />
 			</CardButton>
 		</Card>
