@@ -93,7 +93,7 @@ function UpdateNote({ id, mutate, setControl }:
 					className={styles.inputText} />
 				<Button onClick={handleUpdate}>確定</Button>
 			</div>
-			<Button onClick={() => setControl('options')}>取消</Button>
+			<Button onClick={() => setControl('options')} type='secondary'>取消</Button>
 		</>
 	)
 }
@@ -117,7 +117,7 @@ function DeleteNote({ id, mutate, setControl }:
 				<Text>要刪除這個筆記嗎？</Text>
 				<Button onClick={handleDelete}>確定</Button>
 			</div>
-			<Button onClick={() => setControl('options')}>取消</Button>
+			<Button onClick={() => setControl('options')} type='secondary'>取消</Button>
 		</>
 	)
 }
@@ -130,7 +130,7 @@ function ControlArea({ id, mutate }:
 	if (control == 'options') {
 		controlArea =
 			<div className={styles.jcsb}>
-				<Button onClick={() => setControl('delete')}>刪除</Button>
+				<Button onClick={() => setControl('delete')} type='secondary'>刪除</Button>
 				<Button onClick={() => setControl('update')}>編輯</Button>
 			</div>;
 	}
@@ -168,27 +168,6 @@ function Notes({ data, error, isLoading, mutate }:
 	}
 }
 
-function Info() {
-	return (
-		<TextSection id="info">
-			<Text type="h2">說明</Text>
-			<Text>新增、讀取、更新、刪除，你可在此編輯任何筆記。</Text>
-			<Text>實作與串接 RESTful API，再用 SWR 取得資料、即時更新畫面。</Text>
-
-			<Text type="h3">前端</Text>
-			<Text>畫面：Next.js page</Text>
-			<Text>功能：Create, Read, Update, Delete</Text>
-
-			<Text type="h3">後端</Text>
-			<Text>路徑：Next.js{' '}
-				<Text type="link" href="/api/simple-note" newtab>API Route</Text>
-			</Text>
-			<Text>功能：GET, POST, PATCH, DELETE</Text>
-			<Text>資料：目前只是接收新資料、編輯舊資料之後回傳，並沒有串接到任何資料庫</Text>
-		</TextSection>
-	)
-}
-
 export default function MiniNote() {
 	const { data, error, isLoading, mutate } = useSWR(url, GetData);
 
@@ -204,7 +183,6 @@ export default function MiniNote() {
 					<div className={styles.jcsb}>
 						<Text type="h1">簡單筆記</Text>
 						{/* <Text type="h1">留言板 Bulletin board</Text> */}
-						<Button href="#info">說明</Button>
 						<CreateNote mutate={mutate} />
 					</div>
 
@@ -212,8 +190,6 @@ export default function MiniNote() {
 						<Notes data={data} error={error} isLoading={isLoading} mutate={mutate} />
 					</BlockArea>
 				</BlockSection>
-
-				<Info />
 			</main>
 		</>
 	)
