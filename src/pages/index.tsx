@@ -31,8 +31,25 @@ type RecordsCards = {
 
 export const getServerSideProps: GetServerSideProps<
 	{ recordsCards: RecordsCards }> = async () => {
-	const recordsCards = await getRecordsCards();
-	return { props: { recordsCards } };
+		const recordsCards = await getRecordsCards();
+		return { props: { recordsCards } };
+	}
+
+function OutsideButton(
+	{ records_link: { outsideText, outsideLink, newTab } }:
+		{ records_link: { outsideText: string, outsideLink: string, newTab: boolean } }) {
+	let result;
+	if (outsideText == null) {
+		result = null;
+	} else {
+		const type = (outsideText == '敬請期待') ? 'tertiary' : 'primary';
+		result = (
+			<Button href={outsideLink} newTab={newTab} type={type}>
+				{outsideText}
+			</Button>
+		);
+	}
+	return result;
 }
 
 function Records(
@@ -52,11 +69,7 @@ function Records(
 			</CardText>
 			<CardButton>
 				<Text></Text>
-				{ (records_links[0].newTab) ? 
-				<Button href={records_links[0].outsideLink} newTab>
-				{records_links[0].outsideText}</Button> :
-				<Button href={records_links[0].outsideLink}>
-				{records_links[0].outsideText}</Button> }
+				<OutsideButton records_link={records_links[0]} />
 			</CardButton>
 		</Card>
 	))
