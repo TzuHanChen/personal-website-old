@@ -139,34 +139,34 @@ type OtherRecord = { id: string, name: string };
 
 function PrevNext({ prev, next }:
 	{ prev: OtherRecord, next: OtherRecord }) {
-	let prevRecord, nextRecord;
-	if (prev.id == '0') {
-		prevRecord = <Link href="/#records">
-			<Block addPadding>
-				<Text>上一個紀錄</Text>
-				<Text type='h3'>返回所有紀錄</Text>
-			</Block>
-		</Link>
-	} else {
-		prevRecord = <Link href={prev.id}>
-			<Block addPadding>
-				<Text>上一個紀錄</Text>
-				<Text type='h3'>{prev.name}</Text>
-			</Block>
-		</Link>
-	}
+	let nextRecord, prevRecord;
 	if (next.id == '0') {
 		nextRecord = <Link href="/#records">
-			<Block addPadding textAlignRight>
+			<Block addPadding>
 				<Text>下一個紀錄</Text>
 				<Text type='h3'>返回所有紀錄</Text>
 			</Block>
 		</Link>
 	} else {
 		nextRecord = <Link href={next.id}>
-			<Block addPadding textAlignRight>
+			<Block addPadding>
 				<Text>下一個紀錄</Text>
 				<Text type='h3'>{next.name}</Text>
+			</Block>
+		</Link>
+	}
+	if (prev.id == '0') {
+		prevRecord = <Link href="/#records">
+			<Block addPadding textAlignRight>
+				<Text>上一個紀錄</Text>
+				<Text type='h3'>返回所有紀錄</Text>
+			</Block>
+		</Link>
+	} else {
+		prevRecord = <Link href={prev.id}>
+			<Block addPadding textAlignRight>
+				<Text>上一個紀錄</Text>
+				<Text type='h3'>{prev.name}</Text>
 			</Block>
 		</Link>
 	}
@@ -174,7 +174,7 @@ function PrevNext({ prev, next }:
 	return (
 		<BlockSection>
 			<BlockArea>
-				{prevRecord}{nextRecord}
+				{nextRecord}{prevRecord}
 			</BlockArea>
 		</BlockSection>
 	)
