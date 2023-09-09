@@ -19,6 +19,7 @@ function Intro() {
 				<Text type="teal">陳子涵</Text>
 			</Text>
 			<Text type="h3" align="center">之前是前端網頁實習生，現在的目標是成為前端工程師</Text>
+			{/* <Text type="h3" align="center">現在是前端工程師</Text> */}
 			<Text>　　我目前使用 Next.js, React, TypeScript, SWR, SCSS 等前端工具，完成實習、接案、新創的專案與任務。能夠使用 React 製作元件、開發功能、串接資料、組成畫面。之前有接觸過介面設計、使用者體驗、後端開發，現在仍有持續利用過往經歷，與負責這些職位的夥伴討論、溝通與合作。如果你想找我聊聊新的合作機會，請聯繫我！</Text>
 		</TextSection>
 	)
@@ -28,6 +29,10 @@ function Experience() {
 	return (
 		<TextSection>
 			<Text type="h2">經歷</Text>
+
+			{/* <Text type="h3">
+				<Text type="teal">樂倍達數位科技股份有限公司 - 前端工程師</Text>　2023/09 ~ 現今
+			</Text> */}
 
 			<Text type="h3">
 				<Text type="teal">Teamie - 前端工程師</Text>　2022/09 ~ 現今
@@ -60,6 +65,34 @@ function Experience() {
 	)
 }
 
+function Skills() {
+	return (
+		<BlockSection>
+			<Text type="h2">技能</Text>
+			<BlockArea column={3}>
+				<div>
+					<Text type="h3"><Text type='teal'>網站前端</Text></Text>
+					<Text>Next.js, React, TypeScript, SWR, SCSS</Text>
+					<Text type="h3">版本控制</Text>
+					<Text>Git, GitHub, GitLab</Text>
+				</div>
+
+				<div>
+					<Text type="h3">部署</Text>
+					<Text>Vercel, GitHub Pages</Text>
+					<Text type="h3">網站後端</Text>
+					<Text>Hasura, Neon (Serverless Postgres), PHP, MySQL</Text>
+				</div>
+
+				<div>
+					<Text type="h3">介面設計、使用者體驗</Text>
+					<Text>Figma, FigJam, Miro</Text>
+				</div>
+			</BlockArea>
+		</BlockSection>
+	)
+}
+
 function TotalUsers() {
 	const url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSFIGLw3THQARBNhQTVJnFXcyfOATc3nLL9Z9zXlHKjlZdWSvtT8I1IcShj3x0ARK3XmcwF9OIzoVid/pub?gid=1358621105&single=true&output=tsv";
 
@@ -83,104 +116,101 @@ function TotalUsers() {
 	}
 }
 
-function Skills() {
+function Certificate() {
 	return (
-		<BlockSection>
-			<BlockArea column={3}>
-				<div>
-					<Text type="h2">技能</Text>
+		<div>
+			<Text type="h2">證書</Text>
 
-					<Text type="h3">網頁前端</Text>
-					<Text>Next.js, React, TypeScript, SWR, SCSS</Text>
-					<Text type="h3">版本控制</Text>
-					<Text>Git, GitHub, GitLab</Text>
-					<Text type="h3">介面設計、使用者體驗</Text>
-					<Text>Figma, FigJam, Miro</Text>
-				</div>
+			<Text>參加{' '}
+				<Text type="link" href="https://growonairtw.withgoogle.com/events/digitaleducation">
+					Google 數位人才探索計畫 </Text><br />
+				於 2023/05 取得</Text>
+			<Text type="ul">
+				<li><Text type="link" href="https://www.credential.net/e8426561-bf2b-4951-816e-4bdfeeb6a6c7">Google Analytics (分析) 認證</Text></li>
+				<li><Text type="link" href="https://oss.uppmkt.com/202305/kep/cer3/ga4/YHhGjM.png">Google 數位人才結業證書</Text></li>
+			</Text>
+			<Text type="h3">透過 GA4 收集到的<br />
+				本網站使用者總數為{' '}
+				<Text type="teal"><TotalUsers /></Text>
+			</Text>
+		</div>
+	)
+}
 
-				<div>
-					<Text type="h2">證書</Text>
+function Recognition() {
+	return (
+		<div>
+			<Text type="h2">認可</Text>
 
-					<Text>參加{' '}
-						<Text type="link" href="https://growonairtw.withgoogle.com/events/digitaleducation">
-						Google 數位人才探索計畫 </Text><br />
-						於 2023/05 取得</Text>
-					<Text type="ul">
-						<li><Text type="link" href="https://www.credential.net/e8426561-bf2b-4951-816e-4bdfeeb6a6c7">Google Analytics (分析) 認證</Text></li>
-						<li><Text type="link" href="https://oss.uppmkt.com/202305/kep/cer3/ga4/YHhGjM.png">Google 數位人才結業證書</Text></li>
-					</Text>
-					<Text type="h3">透過 GA4 收集到的<br />
-						本網站使用者總數為{' '}
-						<Text type="teal"><TotalUsers /></Text>
-					</Text>
-				</div>
-
-				<div>
-					<Text type="h2">認可</Text>
-
-					<Text type="h3">放視大賞 - 入圍　2021/05</Text>
-					<Text>畢業專題＂珍食力＂入圍<br />2021 放視大賞的行動應用類 -<br />軟體內容創意企劃組決賽。</Text>
-					<Text type="ul">
-						<li>使用者體驗、介面設計，<br />Miro + Figma</li>
-					</Text>
-					<Text>
-						<Text type="link" href="https://www.dcaward-vgw.org.tw/tw/onlineExhibition/winningWorks/detail/31427">
-							放視大賞得獎作品頁面</Text>
-					</Text>
-				</div>
-			</BlockArea>
-		</BlockSection>
+			<Text type="h3">
+				<Text type="teal">放視大賞 - 入圍</Text>　2021/05
+			</Text>
+			<Text>畢業專題＂珍食力＂入圍<br />2021 放視大賞的行動應用類 -<br />軟體內容創意企劃組決賽。</Text>
+			<Text type="ul">
+				<li>使用者體驗、介面設計，<br />Miro + Figma</li>
+			</Text>
+			<Text>
+				<Text type="link" href="https://www.dcaward-vgw.org.tw/tw/onlineExhibition/winningWorks/detail/31427">
+					放視大賞入圍紀錄頁面</Text>
+			</Text>
+		</div>
 	)
 }
 
 function Education() {
 	return (
-		<TextSection>
+		<div>
 			<Text type="h2">學歷</Text>
 
 			<Text type="h3">
 				<Text type="teal">國立台中教育大學 - 學士</Text>　2017/09 ~ 2021/06
 			</Text>
-			<Text>就讀數位內容科技學系。選修兩個群組課程：數位技術應用、數位設計。</Text>
-		</TextSection>
+			<Text>就讀數位內容科技學系。</Text>
+			<Text>選修兩個群組課程：數位技術應用、數位設計。</Text>
+		</div>
 	)
 }
 
 function Contact() {
 	return (
-		<BlockSection>
-			<BlockArea column={3}>
-				<div>
-					<Text type="h2">聯絡資訊</Text>
 
-					<Text>居住地：台灣，台北市</Text>
-					<Text>Email：
-						<Text type="link" href="mailto:hahachentzuhan@gmail.com">hahachentzuhan@gmail.com</Text>
-					</Text>
-				</div>
+		<div>
+			<Text type="h2">聯絡資訊</Text>
 
-				<div>
-					<Text type="h2">網站連結</Text>
+			<Text>居住地：台灣，台北市</Text>
+			<Text>Email：
+				<Text type="link" href="mailto:hahachentzuhan@gmail.com">hahachentzuhan@gmail.com</Text>
+			</Text>
+		</div>
+	)
+}
 
-					<Text>
-						<Text type="link" href="https://github.com/TzuHanChen">GitHub</Text>
-					</Text>
-					<Text>
-						<Text type="link" href="https://www.linkedin.com/in/tzuhanchen/">LinkedIn</Text>
-					</Text>
-				</div>
+function Website() {
+	return (
+		<div>
+			<Text type="h2">網站連結</Text>
 
-				<div>
-					<Text type="h2">履歷</Text>
+			<Text>
+				<Text type="link" href="https://github.com/TzuHanChen">GitHub</Text>
+			</Text>
+			<Text>
+				<Text type="link" href="https://www.linkedin.com/in/tzuhanchen/">LinkedIn</Text>
+			</Text>
+		</div>
+	)
+}
 
-					<Text>
-						<Button href="/TzuHanChen_Resume.pdf" newTab>履歷 PDF 檔案</Button>
-					</Text>
-					<br />
-					<Text align="right">© 2023 陳子涵</Text>
-				</div>
-			</BlockArea>
-		</BlockSection>
+function Resume() {
+	return (
+		<div>
+			<Text type="h2">履歷</Text>
+
+			<Text>
+				<Button href="/TzuHanChen_Resume.pdf" newTab>履歷 PDF 檔案</Button>
+			</Text>
+			<Text>更新日期：2023/08/10</Text>
+			<Text align="right">© 2023 陳子涵</Text>
+		</div>
 	)
 }
 
@@ -196,8 +226,17 @@ export default function About() {
 				<Intro />
 				<Experience />
 				<Skills />
-				<Education />
-				<Contact />
+
+				<BlockSection>
+					<BlockArea column={3}>
+						<Certificate />
+						<Recognition />
+						<Education />
+						<Contact />
+						<Website />
+						<Resume />
+					</BlockArea>
+				</BlockSection>
 			</main>
 		</>
 	)
