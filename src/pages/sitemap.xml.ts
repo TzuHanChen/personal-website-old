@@ -1,50 +1,39 @@
 import { GetServerSideProps } from 'next';
-// import { getSortedRecordsData } from "../lib/records";
+import { getRecordsIds } from "../lib/records";
 
-const DEPLOYMENT_URL = 'https://tzuhanchen.vercel.app';
+const DEPLOYMENT_URL = 'https://tzuhanchen.vercel.app/';
 
-function generateSiteMap() {
-	return `<xml version="1.0" encoding="UTF-8">
+function generateSiteMap(recordsIds: { params: { id: string } }[]) {
+	return `<?xml version="1.0" encoding="UTF-8"?>
 		<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 			<!-- Manually set the URLs I already know -->
 			<url>
 				<loc>${DEPLOYMENT_URL}</loc>
 			</url>
 			<url>
-				<loc>${DEPLOYMENT_URL}/about</loc>
+				<loc>${DEPLOYMENT_URL}about</loc>
 			</url>
 			<url>
-				<loc>${DEPLOYMENT_URL}/simple-note</loc>
+				<loc>${DEPLOYMENT_URL}simple-note</loc>
 			</url>
-		</urlset>
-	</xml>`;
-}
-
-function InProgress() {
-	return `
 			
-	  `
-			// <!-- Dynamically set the URLs of posts -->
-			// 
-			// ${
-				// records.map(({ id }) => {
-		// return `
-					// <url>
-						// <loc>${DEPLOYMENT_URL}/posts/${id}</loc>
-					// </url>
-				// `;
-	// })
-			// .join('')
-		// }
+			<!-- Dynamically set the URLs of records -->
+			${recordsIds.map((item: { params: { id: string } }) => {
+				return `<url>
+					<loc>${DEPLOYMENT_URL}records/${item.params.id}</loc>
+				</url>`;
+			})
+			.join('')
+			}
+		</urlset>
+	`;
 }
 
 export const getServerSideProps: GetServerSideProps = async ({ res }) => {
-	// Get all post ids
-	// const recordsIds = getSortedRecordsData();
-
-	// Generate the XML sitemap with the posts data
-	// const sitemap = generateSiteMap(recordsIds);
-	const sitemap = generateSiteMap();
+	// Get all records ids
+	const recordsIds = await getRecordsIds();
+	// Generate the XML sitemap
+	const sitemap = generateSiteMap(recordsIds);
 
 	res.setHeader('Content-Type', 'text/xml');
 	// Send the XML to the browser

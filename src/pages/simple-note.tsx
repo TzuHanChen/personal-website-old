@@ -4,7 +4,6 @@ import useSWR from 'swr'
 import SEO from '@/components/seo'
 import Text from '@/components/text'
 import Button from '@/components/button'
-import TextSection from '@/layouts/text-section'
 import BlockSection, { BlockArea } from '@/layouts/block-section'
 import styles from '@/design-tokens/utilities.module.scss'
 
