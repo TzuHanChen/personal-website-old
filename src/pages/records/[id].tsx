@@ -185,7 +185,7 @@ export default function Record({ recordBasic, recordDetail, recordContent, recor
 	prev: OtherRecord, next: OtherRecord }) {
 	return (
 		<>
-			<SEO title={recordBasic.name}
+			<SEO title={`陳子涵 | ${recordBasic.name}`}
 				description={recordBasic.intro}
 				url={`/records/${recordBasic.id}`}
 				image={`/images/${recordBasic.image}`} />

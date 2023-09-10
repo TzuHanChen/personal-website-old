@@ -1,23 +1,5 @@
 # 未來更新計畫
 
-## 職涯紀錄
-
-Neon PostgreSQL + Hasura GraphQL
-
-## 簡單筆記
-
-Neon PostgreSQL + Hasura RESTful API
-
-## 求職紀錄
-
-Chart.js
-
-## 關於我
-
-技能：前端單獨一個區塊，後端、介面、體驗三個區塊並排
-
----
-
 等待 [Material Design Web Components](https://github.com/material-components/material-web) 釋出 v1.0.0 stable 再進行下列改版
 
 ## 設計
