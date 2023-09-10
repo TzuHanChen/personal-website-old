@@ -1,0 +1,97 @@
+$teal: #008080;
+
+.app {
+  width: 300px;
+  min-height: 432px;
+  padding: 0 12px;
+  border-radius: 18px;
+  box-shadow: 0px 0px 18px #DDDDDD;
+  background-color: #FAFAFA;
+  color: #333;
+}
+.game {
+  display: flex;
+  justify-content: space-between;
+}
+
+.title {
+  margin: 6px 0;
+  font-size: 36px;
+  font-weight: 700;
+  text-align: center;
+}
+.subtitle {
+  margin-top: 6px;
+  font-size: 24px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.width-50 {
+  width: 50%;
+}
+
+.board {
+  width: 105px;
+  margin: 0 auto;
+}
+.board-row {
+  margin-bottom: -1px;
+  height: 36px;
+  display: flex;
+  align-items: top;
+}
+.square {
+  margin-right: -1px;
+  margin-top: -1px;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  color: $teal;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 36px;
+  text-align: center;
+}
+.square:hover, .square:active {
+  cursor: pointer;
+}
+
+.li {
+  height: 36px;
+  list-style-type: none;
+  text-align: center;
+}
+.move {
+  height: 30px;
+  padding: 6px 12px;
+  border-radius: 18px;
+  border: none;
+  background-color: #eee;
+  font-size: 15px;
+  font-weight: 400;
+}
+.move:hover, .move:active {
+  cursor: pointer;
+  animation-name: swapColor;
+	animation-duration: 0.6s;
+	animation-fill-mode: forwards;
+}
+@keyframes swapColor {
+  from {
+    background-color: #eee;
+    color: #333;
+  }
+  to {
+    background-color: $teal;
+    color: #fff;
+  }
+}
+.current {
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 35px;
+  color: $teal;
+}
