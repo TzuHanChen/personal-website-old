@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import SEO from '@/components/seo';
 import FullSection from '@/layouts/full-section'
 import styles from './tic-tac-toe.module.scss';
 
@@ -127,25 +128,32 @@ export default function Game() {
 	}
 
 	return (
-		<main>
-			<FullSection>
-				<div className={styles.app}>
-					<h1 className={styles.title}>井字遊戲</h1>
-					<div className={styles.game}>
-						<div className={styles['width-50']}>
-							<Board xIsNext={xIsNext}
-								squares={currentSquares}
-								onPlay={handlePlay} />
-							<Status xIsNext={xIsNext}
-								squares={currentSquares}
-								currentMove={currentMove} />
-						</div>
-						<div className={styles['width-50']}>
-							<History history={history} currentMove={currentMove} setCurrentMove={setCurrentMove} />
+		<>
+			<SEO title="井字遊戲"
+				description="可以穿梭時空的井字遊戲"
+				url="/lab/tic-tac-toe"
+				image="/images/tic-tac-toe.png" />
+				
+			<main>
+				<FullSection>
+					<div className={styles.app}>
+						<h1 className={styles.title}>井字遊戲</h1>
+						<div className={styles.game}>
+							<div className={styles['width-50']}>
+								<Board xIsNext={xIsNext}
+									squares={currentSquares}
+									onPlay={handlePlay} />
+								<Status xIsNext={xIsNext}
+									squares={currentSquares}
+									currentMove={currentMove} />
+							</div>
+							<div className={styles['width-50']}>
+								<History history={history} currentMove={currentMove} setCurrentMove={setCurrentMove} />
+							</div>
 						</div>
 					</div>
-				</div>
-			</FullSection>
-		</main>
+				</FullSection>
+			</main>
+		</>
 	);
 }
