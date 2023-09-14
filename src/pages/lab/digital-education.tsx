@@ -145,7 +145,7 @@ export default function DigitalEducation(
 	return (
 		<>
 			<SEO title="數位人才"
-				description="我參加 Google 數位人才探索計畫的期間留下的紀錄"
+				description="參加 Google 數位人才探索計畫的期間留下的紀錄"
 				url="/lab/digital-education"
 				image="/images/digital-education.png" />
 
