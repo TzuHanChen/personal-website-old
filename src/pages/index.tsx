@@ -5,8 +5,7 @@ import SEO from '@/components/seo'
 import Text from '@/components/text'
 import Button from '@/components/button'
 import Card, { CardImage, CardText, CardButton } from '@/components/card'
-import HeroSection from '@/layouts/hero-section'
-// import Block from '@/components/block'
+import Block from '@/components/block'
 import BlockSection, { BlockArea } from '@/layouts/block-section'
 import TextSection from '@/layouts/text-section'
 import { getRecordsCards } from '@/lib/records'
@@ -14,24 +13,17 @@ import styles from '@/design-tokens/utilities.module.scss'
 
 function Hero() {
 	return (
-		<HeroSection>
-			<Text type="h1" align="center">你好，我是
-				<Text type="teal">陳子涵</Text>
-			</Text>
-			<Text type="h2" align="center">之前是前端網頁實習生，現在的目標是成為前端工程師</Text>
-		</HeroSection>
-
-		// <BlockSection>
-		// 	<BlockArea type='flex'>
-		// 		<Block>
-		// 		<Text type="h3" align="center">你好，我是</Text>
-		// 		<Text type="h1" align="center">
-		// 			<Text type="teal">陳子涵</Text>
-		// 		</Text>
-		// 		<Text type="h2" align="center">現在是前端工程師</Text>
-		// 		</Block>
-		// 	</BlockArea>
-		// </BlockSection>
+		<BlockSection>
+			{/* <BlockArea type='flex'> */}
+				<Block addPadding>
+				<Text type="h3" align="center">你好，我是</Text>
+				<Text type="h1" align="center">
+					<Text type="teal">陳子涵</Text>
+				</Text>
+				<Text type="h2" align="center">現在是前端工程師</Text>
+				</Block>
+			{/* </BlockArea> */}
+		</BlockSection>
 	)
 }
 
@@ -81,10 +73,10 @@ function Records(
 			<CardText>
 				<div className={styles.jcsb}>
 					<Text type="h3">{name}</Text>
-					<Text><Text type="verdigris"># {type}</Text></Text>
+					<Text><Text type="mediumGray"># {type}</Text></Text>
 				</div>
 				<Text type="p">{intro}</Text>
-				<Text><Text type="teal">{highlight}</Text></Text>
+				<Text><Text type="mediumGray">{highlight}</Text></Text>
 			</CardText>
 			<CardButton>
 				<InsideButton id={id} />

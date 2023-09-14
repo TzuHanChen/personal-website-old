@@ -18,8 +18,7 @@ function Intro() {
 			<Text type="h2" align="center">你好，我是
 				<Text type="teal">陳子涵</Text>
 			</Text>
-			<Text type="h3" align="center">之前是前端網頁實習生，現在的目標是成為前端工程師</Text>
-			{/* <Text type="h3" align="center">現在是前端工程師</Text> */}
+			<Text type="h3" align="center">現在是前端工程師</Text>
 			<Text>　　我目前使用 Next.js, React, TypeScript, SWR, SCSS 等前端工具，完成實習、接案、新創的專案與任務。能夠使用 React 製作元件、開發功能、串接資料、組成畫面。之前有接觸過介面設計、使用者體驗、後端開發，現在仍有持續利用過往經歷，與負責這些職位的夥伴討論、溝通與合作。如果你想找我聊聊新的合作機會，請聯繫我！</Text>
 		</TextSection>
 	)
@@ -30,23 +29,25 @@ function Experience() {
 		<TextSection>
 			<Text type="h2">經歷</Text>
 
-			{/* <Text type="h3">
-				<Text type="teal">樂倍達數位科技股份有限公司 - 前端工程師</Text>　2023/09 ~ 現今
-			</Text> */}
+			<Text type="h3">
+				<Text type="teal">前端工程師</Text>　
+				樂倍達數位科技股份有限公司
+			</Text>
+			<Text><Text type="mediumGray">2023/09 ~ 現今</Text></Text>
 
 			<Text type="h3">
-				<Text type="teal">Teamie - 前端工程師</Text>　2022/09 ~ 現今
+				<Text type="teal">前端工程師</Text>　Teamie
 			</Text>
+			<Text><Text type="mediumGray">2022/09 ~ 現今</Text></Text>
 			<Text>Teamie 是一個學生新創團隊，我們的目標是打造一個專案夥伴媒合平台。</Text>
 			<Text type="ul">
-				<li>使用 Next.js + Bootstrap + SCSS，編輯樣式、製作元件、網頁切版。</li>
-				<li>與前端夥伴合作開發：個人、專案、其它 (動態、動態、靜態頁面)。</li>
-				<li>擔任技術前端組長，與行政策略組、行銷設計組、技術後端組合作。</li>
+				<li>擔任技術組長，與行政策略組、行銷設計組合作。</li>
 			</Text>
 
 			<Text type="h3">
-				<Text type="teal">亞瑞特數位社群行銷有限公司 - 前端網頁實習生</Text>　2022/11 ~ 2023/04
+				<Text type="teal">前端網頁實習生</Text>　亞瑞特數位社群行銷有限公司
 			</Text>
+			<Text><Text type="mediumGray">2022/11 ~ 2023/04</Text></Text>
 			<Text type="ul">
 				<li>使用 JavaScript + SCSS + PHP，網頁切版、前後端分離、功能實作。</li>
 				<li>獨立完成：製作公司的電子報模板、調整公司的內部報表產出網站、<br />
@@ -54,8 +55,10 @@ function Experience() {
 			</Text>
 
 			<Text type="h3">
-				<Text type="teal">眾匯智能健康股份有限公司 - UI/UX設計團隊-實習生</Text>　2020/07 ~ 08
+				<Text type="teal">UI/UX設計團隊-實習生</Text>　
+				眾匯智能健康股份有限公司
 			</Text>
+			<Text><Text type="mediumGray">2020/07 ~ 08</Text></Text>
 			<Text type="ul">
 				<li>使用 XAMPP + MySQL + PHP，建置資料庫、實作各項功能。</li>
 				<li>開發論壇網站的帳號、文章、留言、收藏、追蹤等功能。</li>
@@ -71,7 +74,7 @@ function Skills() {
 			<Text type="h2">技能</Text>
 			<BlockArea column={3}>
 				<div>
-					<Text type="h3"><Text type='teal'>網站前端</Text></Text>
+					<Text type="h3">網站前端</Text>
 					<Text>Next.js, React, TypeScript, SWR, SCSS</Text>
 					<Text type="h3">版本控制</Text>
 					<Text>Git, GitHub, GitLab</Text>
@@ -143,9 +146,10 @@ function Recognition() {
 			<Text type="h2">認可</Text>
 
 			<Text type="h3">
-				<Text type="teal">放視大賞 - 入圍</Text>　2021/05
+				<Text type="teal">放視大賞　入圍</Text>
 			</Text>
-			<Text>畢業專題＂珍食力＂入圍<br />2021 放視大賞的行動應用類 -<br />軟體內容創意企劃組決賽。</Text>
+			<Text><Text type="mediumGray">2021/05</Text></Text>
+			<Text>畢業專題＂珍食力＂於 2021 放視大賞入圍行動應用類 - 軟體內容創意企劃組決賽。</Text>
 			<Text type="ul">
 				<li>使用者體驗、介面設計，<br />Miro + Figma</li>
 			</Text>
@@ -163,8 +167,9 @@ function Education() {
 			<Text type="h2">學歷</Text>
 
 			<Text type="h3">
-				<Text type="teal">國立台中教育大學 - 學士</Text>　2017/09 ~ 2021/06
+				<Text type="teal">國立台中教育大學　學士</Text>
 			</Text>
+			<Text><Text type="mediumGray">2017/09 ~ 2021/06</Text></Text>
 			<Text>就讀數位內容科技學系。</Text>
 			<Text>選修兩個群組課程：數位技術應用、數位設計。</Text>
 		</div>
@@ -208,7 +213,7 @@ function Resume() {
 			<Text>
 				<Button href="/TzuHanChen_Resume.pdf" newTab>履歷 PDF 檔案</Button>
 			</Text>
-			<Text>更新日期：2023/08/10</Text>
+			<Text><Text type="mediumGray">更新日期：2023/09/14</Text></Text>
 			<Text align="right">© 2023 陳子涵</Text>
 		</div>
 	)
