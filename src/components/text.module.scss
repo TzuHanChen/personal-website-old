@@ -40,7 +40,7 @@
 }
 @mixin link {
 	text-decoration: none;
-	border-bottom: 1px solid $teal;
+	border-bottom: 1px solid $verdigris;
 	color: $darkGray;
 	&:hover, &:active {
 		cursor: pointer;
@@ -71,7 +71,8 @@
 .h1, .h2, .h3, .p, .ol, .ul, .link{ color: $darkGray; }
 .teal { color: $teal; }
 .verdigris { color: $verdigris; }
-.h1, .h2, .h3, .p, .ol li, .ul li, .link, .teal, .verdigris{
+.mediumGray { color: $mediumGray; }
+.h1, .h2, .h3, .p, .ol li, .ul li, .link, .teal, .verdigris, .mediumGray{
 	&::selection {
 		background-color: $teal;
 		color: $white;

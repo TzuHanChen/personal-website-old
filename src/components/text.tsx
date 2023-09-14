@@ -34,6 +34,9 @@ export default function Text({ ...props }) {
 		case "verdigris":
 			result = <span className={styles.verdigris}>{children}</span>;
 			break;
+		case "mediumGray":
+			result = <span className={styles.mediumGray}>{children}</span>;
+			break;
 		case "p":
 		default:
 			result = <p className={allClass}>{children}</p>;
