@@ -6,11 +6,11 @@
 
 ## 基本
 
-串接 API (GraphQL、資料庫)
+串接 API (GraphQL、RESTful API、資料庫)
 
 狀態管理 Redux
 
-元件庫 Bootstrap
+元件庫 Bootstrap, Tailwind CSS, styled components
 
 跨平台應用程式 React Native, Expo
 

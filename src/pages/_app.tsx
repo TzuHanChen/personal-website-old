@@ -3,7 +3,7 @@ import Script from 'next/script';
 import type { AppProps } from 'next/app'
 import { Noto_Sans_TC, Fira_Code } from 'next/font/google'
 const noto_sans_tc = Noto_Sans_TC({
-	weight: ['400', '700'],
+	weight: ['300', '700'],
 	style: ['normal'],
 	subsets: ['latin'],
 	display: 'swap',
@@ -31,16 +31,14 @@ function Favicon() {
 
 function Font() {
 	return (
-		<>
-			<style jsx global>{`
-				html {
-					font-family: ${noto_sans_tc.style.fontFamily};
-				}
-				code {
-					font-family: ${fira_code.style.fontFamily};
-				}
-			`}</style>
-		</>
+		<style jsx global>{`
+			body {
+				font-family: ${noto_sans_tc.style.fontFamily}, sans-serif;
+			}
+			code {
+				font-family: ${fira_code.style.fontFamily}, monospaces;
+			}
+		`}</style>
 	)
 }
 
@@ -64,10 +62,10 @@ export default function App({ Component, pageProps }: AppProps) {
 		<>
 			<Head>
 				<Favicon />
-				{/* <Font /> */}
 			</Head>
 			<GA4 />
 
+			<Font />
 			<Nav />
 			<Component {...pageProps} />
 		</>
