@@ -4,7 +4,7 @@
 
 ## 開發工具
 
-Next.js, TypeScript, SCSS, SWR, GA4
+Next.js, TypeScript, SCSS, SWR
 
 ## 部署平台
 
@@ -12,4 +12,4 @@ Next.js, TypeScript, SCSS, SWR, GA4
 
 ## 前往網站
 
-[陳子涵 TzuHan Chen](https://tzuhanchen.vercel.app/)
+[陳子涵 TzuHan Chen](https://tzuhanchen-archive.vercel.app/)
